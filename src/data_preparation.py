@@ -4,7 +4,6 @@ Handles loading, splitting, and saving training/validation/test datasets
 """
 
 import pandas as pd
-import numpy as np
 import pickle
 import logging
 from pathlib import Path
@@ -118,10 +117,12 @@ class DNADataPreparation:
         train_val_df = df[~test_mask].copy()
         
         # Split train+val into train and val
+        stratify_labels = train_val_df['Splicing_types'] if 'Splicing_types' in train_val_df.columns else None
         train_df, val_df = train_test_split(
             train_val_df,
             test_size=(1 - train_split),
-            random_state=42
+            random_state=42,
+            stratify=stratify_labels
         )
         
         logger.info(f"Split sizes - Train: {len(train_df)}, Val: {len(val_df)}, Test: {len(test_df)}")

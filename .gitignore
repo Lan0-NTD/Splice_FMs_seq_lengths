@@ -39,10 +39,10 @@ ENV/
 *.ipynb_checkpoints
 
 # Project-specific
-data/processed/
-results/
-logs/
-plots/
+#data/processed/
+#results/
+#logs/
+#plots/
 
 # Large files
 *.pt

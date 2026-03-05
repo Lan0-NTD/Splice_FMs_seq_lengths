@@ -7,20 +7,20 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 from sklearn.model_selection import StratifiedKFold
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import numpy as np
-import pandas as pd
 import json
 import logging
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Dict, List, Tuple, Any
 import pickle
 
 try:
     from torch.utils.tensorboard import SummaryWriter
 except ImportError:
     logging.warning("TensorBoard not installed")
+    SummaryWriter = None
 
 logger = logging.getLogger(__name__)
 
@@ -145,6 +145,10 @@ class FoundationModelTrainer:
         
         self.model = ModelWithHead(self.base_model, self.classification_head)
         self.model.to(device)
+        self._initial_model_state = {
+            key: value.detach().cpu().clone()
+            for key, value in self.model.state_dict().items()
+        }
         
         # Create model-specific result directory
         self.model_result_dir = results_dir / f"{model_name}_{model_id}"
@@ -272,10 +276,14 @@ class FoundationModelTrainer:
             logger.info(f"\n{'='*50}")
             logger.info(f"Fold {fold + 1}/{num_folds}")
             logger.info(f"{'='*50}")
+
+            # Reset model weights to the initial state for each fold
+            self.model.load_state_dict(self._initial_model_state)
+            self.model.to(self.device)
             
             # Initialize TensorBoard writer for this fold
             fold_log_dir = self.model_log_dir / f"fold_{fold}"
-            self.writer = SummaryWriter(log_dir=str(fold_log_dir))
+            self.writer = SummaryWriter(log_dir=str(fold_log_dir)) if SummaryWriter is not None else None
             
             # Split data
             train_seqs = sequences[train_idx]
@@ -317,10 +325,11 @@ class FoundationModelTrainer:
                 fold_results['val_losses'].append(val_loss)
                 
                 # Log to TensorBoard
-                self.writer.add_scalar('Loss/train', train_loss, epoch)
-                self.writer.add_scalar('Loss/val', val_loss, epoch)
-                self.writer.add_scalar('Metrics/accuracy', metrics['accuracy'], epoch)
-                self.writer.add_scalar('Metrics/f1', metrics['f1'], epoch)
+                if self.writer is not None:
+                    self.writer.add_scalar('Loss/train', train_loss, epoch)
+                    self.writer.add_scalar('Loss/val', val_loss, epoch)
+                    self.writer.add_scalar('Metrics/accuracy', metrics['accuracy'], epoch)
+                    self.writer.add_scalar('Metrics/f1', metrics['f1'], epoch)
                 
                 logger.info(f"Epoch {epoch + 1}/{self.config['epochs']} | "
                            f"Train Loss: {train_loss:.4f} | Val Loss: {val_loss:.4f} | "
@@ -338,7 +347,8 @@ class FoundationModelTrainer:
                     logger.info(f"Early stopping at epoch {epoch + 1}")
                     break
             
-            self.writer.close()
+            if self.writer is not None:
+                self.writer.close()
             all_fold_results.append(fold_results)
         
         self.training_history['fold_results'] = all_fold_results

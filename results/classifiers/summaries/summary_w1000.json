@@ -1,0 +1,52 @@
+[
+  {
+    "Experiment":"NucleotideTransformer_InstaDeepAI\/nucleotide-transformer-500m-human-ref_w1000",
+    "Window":1000,
+    "Accuracy":0.890775108,
+    "Balanced Acc":0.8908049156,
+    "F1 (weighted)":0.8904596851,
+    "F1 (macro)":0.8904733338,
+    "MCC":0.8362529854,
+    "ROC-AUC":0.9756639576
+  },
+  {
+    "Experiment":"HyenaDNA_LongSafari\/hyenadna-medium-160k-seqlen-hf_w1000",
+    "Window":1000,
+    "Accuracy":0.8094079007,
+    "Balanced Acc":0.809513625,
+    "F1 (weighted)":0.80645343,
+    "F1 (macro)":0.8064473877,
+    "MCC":0.7158001156,
+    "ROC-AUC":0.9361856811
+  },
+  {
+    "Experiment":"HyenaDNA_LongSafari\/hyenadna-small-32k-seqlen-hf_w1000",
+    "Window":1000,
+    "Accuracy":0.7811605397,
+    "Balanced Acc":0.7814045224,
+    "F1 (weighted)":0.7752501308,
+    "F1 (macro)":0.7751763252,
+    "MCC":0.6773741969,
+    "ROC-AUC":0.912308738
+  },
+  {
+    "Experiment":"NucleotideTransformer_InstaDeepAI\/nucleotide-transformer-v2-100m-multi-species_w1000",
+    "Window":1000,
+    "Accuracy":0.6330362051,
+    "Balanced Acc":0.6328517273,
+    "F1 (weighted)":0.6318020364,
+    "F1 (macro)":0.6314485472,
+    "MCC":0.4507770015,
+    "ROC-AUC":0.817877455
+  },
+  {
+    "Experiment":"DNABert_zhihan1996\/DNABERT-2-117M_w1000",
+    "Window":1000,
+    "Accuracy":0.5236651845,
+    "Balanced Acc":0.5238033254,
+    "F1 (weighted)":0.5218105206,
+    "F1 (macro)":0.521755747,
+    "MCC":0.2873407203,
+    "ROC-AUC":0.7091230984
+  }
+]

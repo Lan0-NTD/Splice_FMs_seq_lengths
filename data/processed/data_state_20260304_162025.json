@@ -1,0 +1,165 @@
+{
+    "timestamp": "2026-03-04T16:20:25.029309",
+    "window_sizes": [
+        "300",
+        "600",
+        "1000",
+        "10000"
+    ],
+    "train_split": "0.85",
+    "val_split": "0.15",
+    "test_chromosomes": [
+        "20",
+        "21"
+    ],
+    "total_gencode_samples": "744867",
+    "total_gtex_samples": "41262",
+    "data_statistics": {
+        "gencode_300": {
+            "train": {
+                "num_samples": "610654",
+                "num_features": "4",
+                "columns": [
+                    "id",
+                    "sequence",
+                    "Splicing_types",
+                    "CHROM"
+                ],
+                "data_types": {
+                    "id": "object",
+                    "sequence": "object",
+                    "Splicing_types": "int64",
+                    "CHROM": "int64"
+                },
+                "missing_values": {
+                    "id": "0",
+                    "sequence": "0",
+                    "Splicing_types": "0",
+                    "CHROM": "0"
+                },
+                "chromosome_distribution": {
+                    "1": "65111",
+                    "2": "47681",
+                    "3": "39974",
+                    "19": "37489",
+                    "11": "37414",
+                    "17": "37327",
+                    "12": "34284",
+                    "7": "30342",
+                    "6": "29613",
+                    "10": "27289",
+                    "16": "27250",
+                    "5": "26141",
+                    "9": "25517",
+                    "4": "23940",
+                    "23": "21689",
+                    "8": "21672",
+                    "15": "21048",
+                    "14": "20164",
+                    "22": "15323",
+                    "13": "10581",
+                    "18": "9338",
+                    "24": "1467"
+                }
+            },
+            "val": {
+                "num_samples": "107763",
+                "num_features": "4",
+                "columns": [
+                    "id",
+                    "sequence",
+                    "Splicing_types",
+                    "CHROM"
+                ],
+                "data_types": {
+                    "id": "object",
+                    "sequence": "object",
+                    "Splicing_types": "int64",
+                    "CHROM": "int64"
+                },
+                "missing_values": {
+                    "id": "0",
+                    "sequence": "0",
+                    "Splicing_types": "0",
+                    "CHROM": "0"
+                },
+                "chromosome_distribution": {
+                    "1": "11354",
+                    "2": "8383",
+                    "3": "7034",
+                    "19": "6580",
+                    "17": "6487",
+                    "11": "6447",
+                    "12": "6147",
+                    "7": "5342",
+                    "6": "5207",
+                    "10": "4912",
+                    "16": "4850",
+                    "5": "4542",
+                    "9": "4497",
+                    "4": "4238",
+                    "23": "3908",
+                    "8": "3830",
+                    "15": "3703",
+                    "14": "3673",
+                    "22": "2773",
+                    "13": "1860",
+                    "18": "1702",
+                    "24": "294"
+                }
+            },
+            "test": {
+                "num_samples": "26450",
+                "num_features": "4",
+                "columns": [
+                    "id",
+                    "sequence",
+                    "Splicing_types",
+                    "CHROM"
+                ],
+                "data_types": {
+                    "id": "object",
+                    "sequence": "object",
+                    "Splicing_types": "int64",
+                    "CHROM": "int64"
+                },
+                "missing_values": {
+                    "id": "0",
+                    "sequence": "0",
+                    "Splicing_types": "0",
+                    "CHROM": "0"
+                },
+                "chromosome_distribution": {
+                    "20": "18898",
+                    "21": "7552"
+                }
+            }
+        },
+        "gtex_300": {
+            "num_samples": "41262",
+            "num_features": "4",
+            "columns": [
+                "id",
+                "sequence",
+                "Splicing_types",
+                "CHROM"
+            ],
+            "data_types": {
+                "id": "object",
+                "sequence": "object",
+                "Splicing_types": "int64",
+                "CHROM": "object"
+            },
+            "missing_values": {
+                "id": "0",
+                "sequence": "0",
+                "Splicing_types": "0",
+                "CHROM": "0"
+            },
+            "chromosome_distribution": {
+                "chr20": "26863",
+                "chr21": "14399"
+            }
+        }
+    }
+}

@@ -5,6 +5,8 @@ Supports: HyenaDNA, DNABert, Nucleotide Transformer
 
 from typing import Dict, Any, Tuple, TYPE_CHECKING
 import logging
+import sys
+from pathlib import Path
 
 # Import torch first to check if it's available
 try:
@@ -15,7 +17,7 @@ except ImportError:
     logging.warning("torch not installed")
 
 try:
-    from transformers import AutoTokenizer, AutoModel, PreTrainedModel
+    from transformers import AutoTokenizer, AutoModel, AutoModelForMaskedLM, AutoConfig, PreTrainedModel
     TRANSFORMERS_AVAILABLE = True
 except ImportError:
     TRANSFORMERS_AVAILABLE = False
@@ -27,6 +29,12 @@ except ImportError:
         PreTrainedModel = object
 
 logger = logging.getLogger(__name__)
+
+try:
+    from huggingface_hub import hf_hub_download
+    HF_HUB_AVAILABLE = True
+except ImportError:
+    HF_HUB_AVAILABLE = False
 
 
 class FoundationModelLoader:
@@ -203,11 +211,237 @@ class FoundationModelLoader:
             return self.models_cache[model_id], self.tokenizers_cache[model_id]
         
         try:
-            tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
-            model = AutoModel.from_pretrained(
-                model_id,
-                trust_remote_code=True
+            config = None
+            is_dnabert = (
+                model_name == "DNABert"
+                or "dnabert" in model_id.lower()
             )
+
+            # Prefer standard Transformers implementation for DNABERT, but auto-fallback
+            # to trust_remote_code=True when the repo requires custom code.
+            tokenizer_trust_remote_code = False if is_dnabert else True
+            model_trust_remote_code = False if is_dnabert else True
+
+            def _requires_remote_code(error: Exception) -> bool:
+                error_text = str(error).lower()
+                return (
+                    "trust_remote_code=true" in error_text
+                    or "contains custom code" in error_text
+                    or "must be executed to correctly load" in error_text
+                )
+
+            try:
+                tokenizer = AutoTokenizer.from_pretrained(
+                    model_id,
+                    trust_remote_code=tokenizer_trust_remote_code
+                )
+            except Exception as e:
+                if is_dnabert and _requires_remote_code(e):
+                    logger.warning(f"{model_id} requires custom code; retrying tokenizer load with trust_remote_code=True")
+                    tokenizer_trust_remote_code = True
+                    model_trust_remote_code = True
+                    tokenizer = AutoTokenizer.from_pretrained(
+                        model_id,
+                        trust_remote_code=True
+                    )
+                else:
+                    raise
+
+            def _apply_safe_attention_settings(cfg):
+                attention_flags = [
+                    "use_flash_attn",
+                    "flash_attn",
+                    "use_flash_attention",
+                    "flash_attention",
+                    "flash_attn_triton",
+                    "flash_attention_2",
+                    "use_flash_attention_2",
+                    "_flash_attn_2_enabled",
+                    "use_triton",
+                    "fused_attention",
+                    "use_xformers",
+                    "xformers",
+                    "xformers_attention",
+                    "memory_efficient_attention",
+                ]
+                for attr_name in attention_flags:
+                    if hasattr(cfg, attr_name):
+                        setattr(cfg, attr_name, False)
+
+                if hasattr(cfg, "attn_implementation"):
+                    setattr(cfg, "attn_implementation", "eager")
+
+            def _disable_dnabert_remote_flash_attention(loaded_model):
+                """Force DNABERT remote module to skip Triton flash attention kernels."""
+                if not is_dnabert:
+                    return
+
+                patched_modules = 0
+
+                # 1) Patch the model's own Python module if present
+                try:
+                    module_name = loaded_model.__class__.__module__
+                    module_obj = sys.modules.get(module_name)
+                    if module_obj is not None and hasattr(module_obj, "flash_attn_qkvpacked_func"):
+                        setattr(module_obj, "flash_attn_qkvpacked_func", None)
+                        patched_modules += 1
+                except Exception as patch_err:
+                    logger.warning(f"Could not patch DNABERT model module flash attention: {patch_err}")
+
+                # 2) Patch all imported DNABERT bert_layers modules (covers nested/aliased imports)
+                for module_name, module_obj in list(sys.modules.items()):
+                    if module_obj is None:
+                        continue
+                    if "dnabert" in module_name.lower() and "bert_layers" in module_name.lower():
+                        if hasattr(module_obj, "flash_attn_qkvpacked_func"):
+                            try:
+                                setattr(module_obj, "flash_attn_qkvpacked_func", None)
+                                patched_modules += 1
+                            except Exception:
+                                pass
+
+                if patched_modules > 0:
+                    logger.info(f"Patched DNABERT remote flash attention in {patched_modules} module(s); using PyTorch attention path")
+
+            def _ensure_config_compat(cfg):
+                defaults = {
+                    "is_decoder": False,
+                    "add_cross_attention": False,
+                    "cross_attention_hidden_size": None,
+                    "pad_token_id": tokenizer.pad_token_id if tokenizer.pad_token_id is not None else 0,
+                    "bos_token_id": getattr(tokenizer, "bos_token_id", None),
+                    "eos_token_id": getattr(tokenizer, "eos_token_id", None),
+                    "sep_token_id": getattr(tokenizer, "sep_token_id", None),
+                    "cls_token_id": getattr(tokenizer, "cls_token_id", None),
+                }
+                for attr_name, attr_value in defaults.items():
+                    if not hasattr(cfg, attr_name):
+                        setattr(cfg, attr_name, attr_value)
+
+            try:
+                config = AutoConfig.from_pretrained(model_id, trust_remote_code=model_trust_remote_code)
+                _ensure_config_compat(config)
+                _apply_safe_attention_settings(config)
+            except Exception as e:
+                if is_dnabert and _requires_remote_code(e):
+                    logger.warning(f"{model_id} requires custom code; retrying config load with trust_remote_code=True")
+                    model_trust_remote_code = True
+                    config = AutoConfig.from_pretrained(model_id, trust_remote_code=True)
+                    _ensure_config_compat(config)
+                    _apply_safe_attention_settings(config)
+                else:
+                    logger.warning(f"Could not pre-load config for {model_id}: {e}")
+
+            model_load_kwargs = {
+                "trust_remote_code": model_trust_remote_code,
+                "low_cpu_mem_usage": False,
+            }
+            if config is not None:
+                model_load_kwargs["config"] = config
+            model_load_kwargs["attn_implementation"] = "eager"
+
+            try:
+                model = AutoModel.from_pretrained(model_id, **model_load_kwargs)
+            except AttributeError as e:
+                error_text = str(e)
+                if "has no attribute" in error_text or "is_decoder" in error_text or "add_cross_attention" in error_text:
+                    logger.warning(f"Retrying {model_id} after patching config compatibility attrs")
+                    if config is None:
+                        config = AutoConfig.from_pretrained(model_id, trust_remote_code=True)
+                    _ensure_config_compat(config)
+                    model = AutoModel.from_pretrained(
+                        model_id,
+                        trust_remote_code=True,
+                        config=config
+                    )
+                else:
+                    raise
+            except Exception as e:
+                error_text = str(e)
+                if is_dnabert and _requires_remote_code(e):
+                    logger.warning(f"{model_id} requires custom code; retrying model load with trust_remote_code=True")
+                    retry_kwargs = dict(model_load_kwargs)
+                    retry_kwargs["trust_remote_code"] = True
+                    model = AutoModel.from_pretrained(model_id, **retry_kwargs)
+                else:
+                    mismatch_markers = [
+                        "ignore_mismatched_sizes",
+                        "size mismatch",
+                        "MISMATCH",
+                    ]
+                    if any(marker in error_text for marker in mismatch_markers):
+                        logger.warning(
+                            f"Retrying {model_id} with ignore_mismatched_sizes=True due to checkpoint/model shape mismatch"
+                        )
+                        retry_kwargs = dict(model_load_kwargs)
+                        retry_kwargs["ignore_mismatched_sizes"] = True
+                        model = AutoModel.from_pretrained(model_id, **retry_kwargs)
+                    elif "device meta" in error_text.lower() or "tensor on device meta" in error_text.lower():
+                        logger.warning(
+                            f"Retrying {model_id} with low_cpu_mem_usage=False and ignore_mismatched_sizes=True to resolve meta-device tensors"
+                        )
+                        retry_kwargs = dict(model_load_kwargs)
+                        retry_kwargs["low_cpu_mem_usage"] = False
+                        retry_kwargs["ignore_mismatched_sizes"] = True
+                        try:
+                            model = AutoModel.from_pretrained(model_id, **retry_kwargs)
+                        except Exception as inner_e:
+                            inner_error_text = str(inner_e).lower()
+                            if is_dnabert and ("device meta" in inner_error_text or "tensor on device meta" in inner_error_text):
+                                logger.warning(
+                                    f"Falling back to DNABERT MLM loader for {model_id} and using its backbone encoder"
+                                )
+                                try:
+                                    mlm_model = AutoModelForMaskedLM.from_pretrained(
+                                        model_id,
+                                        trust_remote_code=True,
+                                        config=config,
+                                        low_cpu_mem_usage=False,
+                                        ignore_mismatched_sizes=True,
+                                    )
+                                    if hasattr(mlm_model, "bert"):
+                                        model = mlm_model.bert
+                                    elif hasattr(mlm_model, "base_model"):
+                                        model = mlm_model.base_model
+                                    else:
+                                        model = mlm_model
+                                except Exception as final_e:
+                                    final_error_text = str(final_e).lower()
+                                    if "device meta" in final_error_text or "tensor on device meta" in final_error_text:
+                                        logger.warning(
+                                            f"Final fallback: manual state_dict load for {model_id} to bypass meta tensors"
+                                        )
+                                        model = AutoModel.from_config(config, trust_remote_code=True)
+
+                                        if not HF_HUB_AVAILABLE:
+                                            raise RuntimeError(
+                                                "huggingface_hub is required for manual DNABERT weight loading"
+                                            )
+
+                                        weight_file = hf_hub_download(
+                                            repo_id=model_id,
+                                            filename="pytorch_model.bin"
+                                        )
+                                        state_dict = torch.load(Path(weight_file), map_location="cpu")
+                                        if isinstance(state_dict, dict) and "state_dict" in state_dict and isinstance(state_dict["state_dict"], dict):
+                                            state_dict = state_dict["state_dict"]
+
+                                        missing_keys, unexpected_keys = model.load_state_dict(state_dict, strict=False)
+                                        if missing_keys:
+                                            logger.warning(f"Manual load missing keys: {len(missing_keys)}")
+                                        if unexpected_keys:
+                                            logger.warning(f"Manual load unexpected keys: {len(unexpected_keys)}")
+                                    else:
+                                        raise
+                            else:
+                                raise
+                    else:
+                        raise
+
+            if hasattr(model, "config") and model.config is not None:
+                _apply_safe_attention_settings(model.config)
+
+            _disable_dnabert_remote_flash_attention(model)
             
             # Set pad token if not already set
             if tokenizer.pad_token is None:
@@ -217,6 +451,7 @@ class FoundationModelLoader:
                     tokenizer.pad_token = tokenizer.unk_token
                 else:
                     tokenizer.add_special_tokens({'pad_token': '[PAD]'})
+                    model.resize_token_embeddings(len(tokenizer))
             
             # Move to device
             model = model.to(self.device)
