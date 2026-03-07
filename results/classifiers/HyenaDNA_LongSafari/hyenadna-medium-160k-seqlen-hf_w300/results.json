@@ -1,8 +1,16 @@
 {
   "experiment_name": "HyenaDNA_LongSafari/hyenadna-medium-160k-seqlen-hf_w300",
-  "timestamp": "2026-03-05T13:49:24.556330",
+  "timestamp": "2026-03-06T14:24:04.221965",
   "embedding_dim": 256,
   "num_folds": 5,
+  "best_fold": {
+    "fold_idx": 4,
+    "fold_number": 5,
+    "best_metric": "mcc",
+    "best_mcc": 0.7075119886448619,
+    "checkpoint": "best_fold5.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-medium-160k-seqlen-hf_w300\\checkpoints\\best_fold5.pt"
+  },
   "hyperparameters": {
     "num_epochs": 50,
     "batch_size": 256,
@@ -18,6 +26,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.6999483905657302,
       "best_f1_at_best_epoch": 0.7953901826461856,
+      "best_checkpoint": "best_fold1.pt",
       "val_loss": 0.4629032112313335,
       "metrics": {
         "accuracy": 0.798634503493778,
@@ -79,6 +88,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.7046333954612294,
       "best_f1_at_best_epoch": 0.7990387341138555,
+      "best_checkpoint": "best_fold2.pt",
       "val_loss": 0.45402483392864784,
       "metrics": {
         "accuracy": 0.8021143620723253,
@@ -140,6 +150,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.7071126786693553,
       "best_f1_at_best_epoch": 0.7997917095721676,
+      "best_checkpoint": "best_fold3.pt",
       "val_loss": 0.452275722158337,
       "metrics": {
         "accuracy": 0.8032822254546467,
@@ -201,6 +212,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.7068544319614444,
       "best_f1_at_best_epoch": 0.8009122130553689,
+      "best_checkpoint": "best_fold4.pt",
       "val_loss": 0.4514067534131936,
       "metrics": {
         "accuracy": 0.8036510930311868,
@@ -262,6 +274,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.7075119886448619,
       "best_f1_at_best_epoch": 0.8015700717765482,
+      "best_checkpoint": "best_fold5.pt",
       "val_loss": 0.4499888837443552,
       "metrics": {
         "accuracy": 0.8041382766228433,

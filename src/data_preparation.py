@@ -20,7 +20,7 @@ class DNADataPreparation:
                  raw_data_dir: Path,
                  gtex_data_dir: Path,
                  processed_data_dir: Path,
-                 window_sizes: List[int] = [300, 600, 1000, 10000]):
+                 window_sizes: List[int] = [300, 600, 1000, 2000, 10000]):
         """
         Initialize data preparation
         

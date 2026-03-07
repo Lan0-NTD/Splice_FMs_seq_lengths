@@ -1,8 +1,16 @@
 {
   "experiment_name": "HyenaDNA_LongSafari/hyenadna-medium-160k-seqlen-hf_w1000",
-  "timestamp": "2026-03-05T18:01:28.753518",
+  "timestamp": "2026-03-06T19:33:17.170230",
   "embedding_dim": 256,
   "num_folds": 5,
+  "best_fold": {
+    "fold_idx": 2,
+    "fold_number": 3,
+    "best_metric": "mcc",
+    "best_mcc": 0.7177830409640389,
+    "checkpoint": "best_fold3.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-medium-160k-seqlen-hf_w1000\\checkpoints\\best_fold3.pt"
+  },
   "hyperparameters": {
     "num_epochs": 50,
     "batch_size": 256,
@@ -18,6 +26,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.7162502139392714,
       "best_f1_at_best_epoch": 0.806995924656729,
+      "best_checkpoint": "best_fold1.pt",
       "val_loss": 0.4390368340702668,
       "metrics": {
         "accuracy": 0.8097683513210725,
@@ -79,6 +88,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.7143083461960729,
       "best_f1_at_best_epoch": 0.8064481733832377,
+      "best_checkpoint": "best_fold2.pt",
       "val_loss": 0.44053300981844024,
       "metrics": {
         "accuracy": 0.8088150359406857,
@@ -140,6 +150,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.7177830409640389,
       "best_f1_at_best_epoch": 0.8077081095655199,
+      "best_checkpoint": "best_fold3.pt",
       "val_loss": 0.43773475130257655,
       "metrics": {
         "accuracy": 0.8107355837143115,
@@ -201,6 +212,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.7128943256909815,
       "best_f1_at_best_epoch": 0.803208147847283,
+      "best_checkpoint": "best_fold4.pt",
       "val_loss": 0.44622963067687704,
       "metrics": {
         "accuracy": 0.8069362392056169,
@@ -262,6 +274,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.7177646511568874,
       "best_f1_at_best_epoch": 0.8079067943229707,
+      "best_checkpoint": "best_fold5.pt",
       "val_loss": 0.4375729833421334,
       "metrics": {
         "accuracy": 0.8107842932592948,

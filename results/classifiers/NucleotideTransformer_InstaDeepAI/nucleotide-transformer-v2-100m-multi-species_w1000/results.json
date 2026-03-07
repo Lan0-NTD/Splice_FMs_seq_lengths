@@ -1,8 +1,16 @@
 {
   "experiment_name": "NucleotideTransformer_InstaDeepAI/nucleotide-transformer-v2-100m-multi-species_w1000",
-  "timestamp": "2026-03-05T19:18:52.180131",
+  "timestamp": "2026-03-06T20:50:08.553806",
   "embedding_dim": 512,
   "num_folds": 5,
+  "best_fold": {
+    "fold_idx": 1,
+    "fold_number": 2,
+    "best_metric": "mcc",
+    "best_mcc": 0.4530896618654694,
+    "checkpoint": "best_fold2.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-100m-multi-species_w1000\\checkpoints\\best_fold2.pt"
+  },
   "hyperparameters": {
     "num_epochs": 50,
     "batch_size": 256,
@@ -18,6 +26,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.4518123381292916,
       "best_f1_at_best_epoch": 0.633197933094223,
+      "best_checkpoint": "best_fold1.pt",
       "val_loss": 0.7813954146519251,
       "metrics": {
         "accuracy": 0.633982561982896,
@@ -79,6 +88,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.4530896618654694,
       "best_f1_at_best_epoch": 0.6333875937957049,
+      "best_checkpoint": "best_fold2.pt",
       "val_loss": 0.7796172445567053,
       "metrics": {
         "accuracy": 0.6345044499648596,
@@ -140,6 +150,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.4518927995461302,
       "best_f1_at_best_epoch": 0.6326358817310687,
+      "best_checkpoint": "best_fold3.pt",
       "val_loss": 0.7819925314378908,
       "metrics": {
         "accuracy": 0.6337877238029629,
@@ -201,6 +212,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.4485059227384205,
       "best_f1_at_best_epoch": 0.6297389947316518,
+      "best_checkpoint": "best_fold4.pt",
       "val_loss": 0.7835009895609791,
       "metrics": {
         "accuracy": 0.6315122922016019,
@@ -262,6 +274,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.44858428539628775,
       "best_f1_at_best_epoch": 0.6300497786009548,
+      "best_checkpoint": "best_fold5.pt",
       "val_loss": 0.7839280520681808,
       "metrics": {
         "accuracy": 0.6313939975923568,

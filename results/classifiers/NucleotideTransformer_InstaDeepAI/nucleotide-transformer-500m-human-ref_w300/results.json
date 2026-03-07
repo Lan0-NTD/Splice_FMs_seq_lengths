@@ -1,8 +1,16 @@
 {
   "experiment_name": "NucleotideTransformer_InstaDeepAI/nucleotide-transformer-500m-human-ref_w300",
-  "timestamp": "2026-03-05T14:32:40.103453",
+  "timestamp": "2026-03-06T15:06:07.334326",
   "embedding_dim": 1280,
   "num_folds": 5,
+  "best_fold": {
+    "fold_idx": 2,
+    "fold_number": 3,
+    "best_metric": "mcc",
+    "best_mcc": 0.8658137211006715,
+    "checkpoint": "best_fold3.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-500m-human-ref_w300\\checkpoints\\best_fold3.pt"
+  },
   "hyperparameters": {
     "num_epochs": 50,
     "batch_size": 256,
@@ -18,6 +26,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.863907325257298,
       "best_f1_at_best_epoch": 0.9089982448107177,
+      "best_checkpoint": "best_fold1.pt",
       "val_loss": 0.25633513602656827,
       "metrics": {
         "accuracy": 0.909203529968542,
@@ -79,6 +88,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.8655357278073497,
       "best_f1_at_best_epoch": 0.9100319675712867,
+      "best_checkpoint": "best_fold2.pt",
       "val_loss": 0.24048161989217126,
       "metrics": {
         "accuracy": 0.9102614069764204,
@@ -140,6 +150,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.8658137211006715,
       "best_f1_at_best_epoch": 0.9102679359149087,
+      "best_checkpoint": "best_fold3.pt",
       "val_loss": 0.24071252947918462,
       "metrics": {
         "accuracy": 0.9104626156191059,
@@ -201,6 +212,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.8637367867022541,
       "best_f1_at_best_epoch": 0.9088047762216496,
+      "best_checkpoint": "best_fold4.pt",
       "val_loss": 0.24068892118769608,
       "metrics": {
         "accuracy": 0.909070662500087,
@@ -262,6 +274,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.8649147502473765,
       "best_f1_at_best_epoch": 0.9096211280308065,
+      "best_checkpoint": "best_fold5.pt",
       "val_loss": 0.253250403760591,
       "metrics": {
         "accuracy": 0.9098571160123327,

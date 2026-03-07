@@ -188,7 +188,7 @@ class EmbeddingExtractor:
         return torch.cat(all_embeddings, dim=0)
 
     def _extract_with_fallback(self, sequences, labels, model, tokenizer, output_file, max_length, batch_size, method, use_fp16_current):
-        """Extract embeddings with automatic fallback to CPU on incompatible Triton attention kernels."""
+        """Extract embeddings with automatic fallback to CPU on CUDA/Triton failures."""
         try:
             embeddings = self.extract_embeddings_batch(
                 sequences,
@@ -204,17 +204,33 @@ class EmbeddingExtractor:
             return True
         except Exception as e:
             error_text = str(e)
+            error_text_lower = error_text.lower()
             is_triton_kernel_error = (
                 "dot() got an unexpected keyword argument 'trans_b'" in error_text
                 or "tl.dot" in error_text
             )
+            is_cuda_runtime_error = (
+                "device-side assert triggered" in error_text_lower
+                or "cuda error" in error_text_lower
+                or "acceleratorerror" in error_text_lower
+                or "cudnn" in error_text_lower
+            )
 
-            if is_triton_kernel_error and 'cuda' in self.device and torch.cuda.is_available():
-                logger.warning("Detected incompatible Triton attention kernel on CUDA. Retrying extraction on CPU...")
+            should_cpu_fallback = (is_triton_kernel_error or is_cuda_runtime_error)
+
+            if should_cpu_fallback and 'cuda' in self.device:
+                logger.warning("Detected CUDA/Triton runtime issue. Retrying extraction on CPU...")
                 try:
-                    model = model.to('cpu')
-                    if torch.cuda.is_available():
-                        torch.cuda.empty_cache()
+                    try:
+                        model = model.to('cpu')
+                    except Exception as move_err:
+                        logger.warning(f"Could not move model to CPU before fallback: {move_err}")
+                    try:
+                        if torch.cuda.is_available():
+                            torch.cuda.empty_cache()
+                    except Exception:
+                        # CUDA context can be poisoned after device-side assert; ignore and continue on CPU path.
+                        pass
 
                     embeddings = self.extract_embeddings_batch(
                         sequences,
@@ -260,6 +276,11 @@ class EmbeddingExtractor:
     
     def extract_for_window_and_model(self, window_size, model_name, model_id):
         """Extract embeddings for one window size and one model"""
+
+        skip_reason = get_model_window_skip_reason(model_name, model_id, window_size)
+        if skip_reason is not None:
+            logger.info(skip_reason)
+            return 'unsupported'
         
         logger.info(f"\n{'='*70}")
         logger.info(f"Extracting: {model_name}_{model_id} | Window Size: {window_size}")
@@ -437,6 +458,8 @@ class EmbeddingExtractor:
             'total_succeeded': 0,
             'total_failed': 0,
             'total_skipped': 0,
+            'total_skipped_existing': 0,
+            'total_skipped_unsupported': 0,
             'start_time': datetime.now(),
             'errors': []
         }
@@ -455,6 +478,10 @@ class EmbeddingExtractor:
                         
                         if result == 'skipped':
                             stats['total_skipped'] += 1
+                            stats['total_skipped_existing'] += 1
+                        elif result == 'unsupported':
+                            stats['total_skipped'] += 1
+                            stats['total_skipped_unsupported'] += 1
                         elif result is True:
                             stats['total_succeeded'] += 1
                         else:
@@ -473,7 +500,9 @@ class EmbeddingExtractor:
         logger.info(f"{'='*80}")
         logger.info(f"Total started: {stats['total_started']}")
         logger.info(f"Total extracted: {stats['total_succeeded']}")
-        logger.info(f"Total skipped (already exist): {stats['total_skipped']}")
+        logger.info(f"Total skipped: {stats['total_skipped']}")
+        logger.info(f"  - Existing embeddings: {stats['total_skipped_existing']}")
+        logger.info(f"  - Unsupported model/window pairs: {stats['total_skipped_unsupported']}")
         logger.info(f"Total failed: {stats['total_failed']}")
         
         if stats['errors']:
@@ -495,17 +524,54 @@ def main():
     parser = argparse.ArgumentParser(description="Extract embeddings from foundation models")
     parser.add_argument('--device', type=str, default='cuda', help='Device: cuda or cpu')
     parser.add_argument('--window-sizes', type=int, nargs='+', default=None, help='Window sizes to process')
-    parser.add_argument('--models', type=str, nargs='+', default=None, help='Models to process')
+    parser.add_argument('--models', type=str, nargs='+', default=None, help='Model families or model IDs to process')
     
     args = parser.parse_args()
     
     # Initialize extractor
     extractor = EmbeddingExtractor(device=args.device)
     
+    # Optional filtering by model family / model id
+    selected_models_config = MODELS_CONFIG
+    if args.models:
+        requested = {item.strip() for item in args.models if item and item.strip()}
+        filtered = {}
+
+        for model_name, config in MODELS_CONFIG.items():
+            model_ids = list(config.get('model_ids', []))
+            matched_ids = []
+
+            for model_id in model_ids:
+                model_short = model_id.split('/')[-1]
+                if (
+                    model_name in requested
+                    or model_id in requested
+                    or model_short in requested
+                ):
+                    matched_ids.append(model_id)
+
+            if matched_ids:
+                filtered_config = dict(config)
+                filtered_config['model_ids'] = matched_ids
+                filtered[model_name] = filtered_config
+
+        if not filtered:
+            available = []
+            for family, cfg in MODELS_CONFIG.items():
+                available.append(family)
+                available.extend(cfg.get('model_ids', []))
+            raise ValueError(
+                "No models matched --models selection. "
+                f"Requested={sorted(requested)}. "
+                f"Available entries={available}"
+            )
+
+        selected_models_config = filtered
+
     # Extract embeddings
     stats = extractor.extract_all(
         window_sizes=args.window_sizes or WINDOW_SIZES,
-        models_config=MODELS_CONFIG
+        models_config=selected_models_config
     )
     
     # Print summary

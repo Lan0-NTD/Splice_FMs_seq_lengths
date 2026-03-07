@@ -19,10 +19,49 @@ for dir_path in [PROCESSED_DATA_DIR, RESULTS_DIR, PLOTS_DIR, LOGS_DIR]:
     dir_path.mkdir(parents=True, exist_ok=True)
 
 # Data configuration
-WINDOW_SIZES = [300, 600, 1000, 10000]
+WINDOW_SIZES = [300, 600, 1000, 2000, 10000]
 TRAIN_SPLIT = 0.85
 VAL_SPLIT = 0.15
 TEST_CHROMOSOMES = [20, 21]
+
+NUCLEOTIDE_TRANSFORMER_WINDOW_LIMITS = {
+    "InstaDeepAI/nucleotide-transformer-500m-human-ref": 1000,
+    "InstaDeepAI/nucleotide-transformer-v2-100m-multi-species": 2000,
+    "InstaDeepAI/nucleotide-transformer-v2-250m-multi-species": 2000,
+}
+
+
+def get_model_window_limit(model_name, model_id):
+    """Return the maximum supported dataset window size for a model, or None if unrestricted."""
+    if model_name != "NucleotideTransformer":
+        return None
+
+    return NUCLEOTIDE_TRANSFORMER_WINDOW_LIMITS.get(model_id)
+
+
+def is_model_window_supported(model_name, model_id, window_size):
+    """Check whether a model should run for a specific dataset window size."""
+    max_window_size = get_model_window_limit(model_name, model_id)
+    return max_window_size is None or window_size <= max_window_size
+
+
+def get_model_window_skip_reason(model_name, model_id, window_size):
+    """Explain why a model/window combination is intentionally skipped."""
+    max_window_size = get_model_window_limit(model_name, model_id)
+    if max_window_size is None or window_size <= max_window_size:
+        return None
+
+    if model_id == "InstaDeepAI/nucleotide-transformer-500m-human-ref":
+        return (
+            f"Skipping {model_id} for window {window_size}: "
+            f"NT v1 500M is limited to window sizes <= {max_window_size}."
+        )
+
+    return (
+        f"Skipping {model_id} for window {window_size}: "
+        f"NT v2 is limited to window sizes <= {max_window_size} "
+        f"(practical tokenizer/model limit ~2048 tokens)."
+    )
 
 # Model configurations (Tối ưu riêng cho Human Genome)
 MODELS_CONFIG = {
@@ -44,10 +83,11 @@ MODELS_CONFIG = {
         "note": "Multi-species but heavily benchmarked on Human GRCh38. Uses BPE tokenization (much better than k-mer for splicing)."
     },
     "NucleotideTransformer": {
-        "versions": ["500m-human", "100m-v2"],
+        "versions": ["500m-human", "100m-v2", "250m-v2"],
         "model_ids": [
             "InstaDeepAI/nucleotide-transformer-500m-human-ref", # CỰC KỲ KHUYÊN DÙNG: Model 500M tham số train thuần trên Human Reference Genome.
             "InstaDeepAI/nucleotide-transformer-v2-100m-multi-species", # Model v2 kiến trúc mới, nhẹ và chạy rất nhanh trên RTX 5080.
+            "InstaDeepAI/nucleotide-transformer-v2-250m-multi-species", # Model v2 250M, cân bằng giữa tốc độ và độ biểu diễn.
             
             # Lưu ý: InstaDeep có bản "InstaDeepAI/nucleotide-transformer-2.5b-1000g" 
             # (Train trên 1000 bộ gen người) nhưng nặng 2.5 Tỷ tham số, khả năng cao sẽ Out of Memory với window_size > 1000.
@@ -110,6 +150,7 @@ EMBEDDING_CONFIG = {
         300: 256,       # Sequence ngắn -> Batch lớn vô tư
         600: 128,       # Sequence vừa -> Giảm một nửa
         1000: 64,       # Sequence dài -> Giảm tiếp để tránh OOM
+        2000: 32,       # Window 2000 vẫn khá nặng, giảm thêm để an toàn VRAM
         10000: 4,       # ĐẶC BIỆT LƯU Ý: 10000 bp cực kỳ tốn VRAM, chỉ chạy batch 4 hoặc 8.
     }
 }

@@ -111,16 +111,41 @@ class SpliceClassifierTrainer:
         return avg_loss
 
     @staticmethod
-    def set_random_seed(seed: int = 42, deterministic: bool = False):
-        """Set random seeds for near-stable reproducibility."""
+    def set_random_seed(seed: int = 42, deterministic: bool = False, seed_cuda: bool = True):
+        """Set random seeds for near-stable reproducibility.
+
+        When CUDA is in a bad state, use CPU-only seeding to avoid triggering
+        implicit CUDA calls inside torch.manual_seed.
+        """
         random.seed(seed)
         np.random.seed(seed)
-        torch.manual_seed(seed)
-        if torch.cuda.is_available():
+
+        if seed_cuda and torch.cuda.is_available():
+            torch.manual_seed(seed)
             torch.cuda.manual_seed_all(seed)
+        else:
+            torch.random.default_generator.manual_seed(seed)
 
         torch.backends.cudnn.benchmark = not deterministic
         torch.backends.cudnn.deterministic = deterministic
+
+    def _ensure_device_ready(self):
+        """Probe CUDA once and fallback to CPU if runtime state is unhealthy."""
+        if self.device.type != 'cuda':
+            return
+
+        try:
+            _ = torch.cuda.current_device()
+            probe = torch.tensor([1.0], device=self.device)
+            probe = probe * 2.0
+            _ = float(probe.item())
+            torch.cuda.synchronize()
+        except Exception as e:
+            logger.warning(
+                "CUDA runtime is not healthy (%s). Falling back to CPU for this training run.",
+                e,
+            )
+            self.device = torch.device('cpu')
     
     def eval_epoch(self, model, val_loader, criterion):
         """Evaluate one epoch"""
@@ -188,11 +213,19 @@ class SpliceClassifierTrainer:
         logger.info(f"Label distribution: {np.bincount(labels)}")
         logger.info(f"Num folds: {num_folds}, Epochs: {num_epochs}, Batch size: {batch_size}")
 
-        self.set_random_seed(seed=seed, deterministic=deterministic)
+        self._ensure_device_ready()
+        self.set_random_seed(
+            seed=seed,
+            deterministic=deterministic,
+            seed_cuda=(self.device.type == 'cuda')
+        )
         
         # Setup experiment directory
         exp_dir = self.results_dir / experiment_name
         exp_dir.mkdir(parents=True, exist_ok=True)
+
+        checkpoints_dir = exp_dir / 'checkpoints'
+        checkpoints_dir.mkdir(parents=True, exist_ok=True)
         
         tensorboard_dir = exp_dir / 'tensorboard'
         tensorboard_dir.mkdir(parents=True, exist_ok=True)
@@ -204,6 +237,11 @@ class SpliceClassifierTrainer:
         fold_results = {}
         all_fold_metrics = []
         
+        # Track global best fold for easy inference selection
+        global_best_fold_idx = None
+        global_best_fold_mcc = -np.inf
+        global_best_checkpoint_name = None
+
         # Loop through folds
         for fold_idx, (train_idx, val_idx) in enumerate(skf.split(embeddings, labels)):
             logger.info(f"\n{'#'*80}")
@@ -348,11 +386,44 @@ class SpliceClassifierTrainer:
             )
             
             # Save fold results
+            fold_number = fold_idx + 1
+            checkpoint_name = f"best_fold{fold_number}.pt"
+            checkpoint_path = checkpoints_dir / checkpoint_name
+
+            if best_model_state is not None:
+                checkpoint_payload = {
+                    'fold_idx': fold_idx,
+                    'fold_number': fold_number,
+                    'best_epoch': best_epoch + 1,
+                    'best_metric': 'mcc',
+                    'best_mcc': float(best_val_mcc),
+                    'embedding_dim': int(self.embedding_dim),
+                    'num_classes': int(self.num_classes),
+                    'experiment_name': experiment_name,
+                    'model_state_dict': best_model_state,
+                    'hyperparameters': {
+                        'num_epochs': num_epochs,
+                        'batch_size': batch_size,
+                        'learning_rate': learning_rate,
+                        'weight_decay': weight_decay,
+                        'early_stopping_patience': early_stopping_patience,
+                        'seed': seed,
+                        'deterministic': deterministic,
+                    },
+                }
+                torch.save(checkpoint_payload, checkpoint_path)
+
+            if best_val_mcc > global_best_fold_mcc:
+                global_best_fold_mcc = float(best_val_mcc)
+                global_best_fold_idx = fold_idx
+                global_best_checkpoint_name = checkpoint_name
+
             fold_results[f'fold_{fold_idx}'] = {
                 'best_epoch': best_epoch + 1,
                 'best_metric': 'mcc',
                 'best_mcc': float(best_val_mcc),
                 'best_f1_at_best_epoch': float(fold_history['metrics'][best_epoch]['f1_weighted']) if best_epoch >= 0 else 0.0,
+                'best_checkpoint': checkpoint_name,
                 'val_loss': float(val_loss),
                 'metrics': {k: float(v) if isinstance(v, (int, float, np.number)) else str(v)
                            for k, v in metrics.items()},
@@ -404,6 +475,14 @@ class SpliceClassifierTrainer:
             'timestamp': datetime.now().isoformat(),
             'embedding_dim': int(self.embedding_dim),
             'num_folds': num_folds,
+            'best_fold': {
+                'fold_idx': int(global_best_fold_idx) if global_best_fold_idx is not None else None,
+                'fold_number': int(global_best_fold_idx + 1) if global_best_fold_idx is not None else None,
+                'best_metric': 'mcc',
+                'best_mcc': float(global_best_fold_mcc) if global_best_fold_idx is not None else None,
+                'checkpoint': global_best_checkpoint_name,
+                'checkpoint_path': str(checkpoints_dir / global_best_checkpoint_name) if global_best_checkpoint_name is not None else None,
+            },
             'hyperparameters': {
                 'num_epochs': num_epochs,
                 'batch_size': batch_size,

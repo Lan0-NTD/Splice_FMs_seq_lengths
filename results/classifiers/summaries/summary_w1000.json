@@ -40,6 +40,16 @@
     "ROC-AUC":0.817877455
   },
   {
+    "Experiment":"NucleotideTransformer_InstaDeepAI\/nucleotide-transformer-v2-250m-multi-species_w1000",
+    "Window":1000,
+    "Accuracy":0.5830323779,
+    "Balanced Acc":0.5829545283,
+    "F1 (weighted)":0.5819552066,
+    "F1 (macro)":0.5817356515,
+    "MCC":0.3755098183,
+    "ROC-AUC":0.7719381825
+  },
+  {
     "Experiment":"DNABert_zhihan1996\/DNABERT-2-117M_w1000",
     "Window":1000,
     "Accuracy":0.5236651845,

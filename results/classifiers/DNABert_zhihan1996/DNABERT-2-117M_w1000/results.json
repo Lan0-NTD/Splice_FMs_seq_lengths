@@ -1,8 +1,16 @@
 {
   "experiment_name": "DNABert_zhihan1996/DNABERT-2-117M_w1000",
-  "timestamp": "2026-03-05T18:34:00.575720",
+  "timestamp": "2026-03-06T20:04:10.062521",
   "embedding_dim": 768,
   "num_folds": 5,
+  "best_fold": {
+    "fold_idx": 3,
+    "fold_number": 4,
+    "best_metric": "mcc",
+    "best_mcc": 0.2914717519534333,
+    "checkpoint": "best_fold4.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\DNABert_zhihan1996\\DNABERT-2-117M_w1000\\checkpoints\\best_fold4.pt"
+  },
   "hyperparameters": {
     "num_epochs": 50,
     "batch_size": 256,
@@ -18,6 +26,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.2852824575098548,
       "best_f1_at_best_epoch": 0.5204944314105353,
+      "best_checkpoint": "best_fold1.pt",
       "val_loss": 0.9717875075297848,
       "metrics": {
         "accuracy": 0.5224098699455149,
@@ -79,6 +88,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.2883077529623814,
       "best_f1_at_best_epoch": 0.5230856571913117,
+      "best_checkpoint": "best_fold2.pt",
       "val_loss": 0.970951195607406,
       "metrics": {
         "accuracy": 0.5245182973926477,
@@ -140,6 +150,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.2870188423633898,
       "best_f1_at_best_epoch": 0.5217721559239066,
+      "best_checkpoint": "best_fold3.pt",
       "val_loss": 0.9711699773196224,
       "metrics": {
         "accuracy": 0.5235580235058347,
@@ -201,6 +212,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.2914717519534333,
       "best_f1_at_best_epoch": 0.5234311409671015,
+      "best_checkpoint": "best_fold4.pt",
       "val_loss": 0.9680545861398622,
       "metrics": {
         "accuracy": 0.5259239156907362,
@@ -262,6 +274,7 @@
       "best_metric": "mcc",
       "best_mcc": 0.28462279668850443,
       "best_f1_at_best_epoch": 0.5202692177319536,
+      "best_checkpoint": "best_fold5.pt",
       "val_loss": 0.9716032144225789,
       "metrics": {
         "accuracy": 0.5219158159892561,
