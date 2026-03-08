@@ -19,15 +19,15 @@ for dir_path in [PROCESSED_DATA_DIR, RESULTS_DIR, PLOTS_DIR, LOGS_DIR]:
     dir_path.mkdir(parents=True, exist_ok=True)
 
 # Data configuration
-WINDOW_SIZES = [300, 600, 1000, 2000, 10000]
+WINDOW_SIZES = [300, 600, 1000, 2000, 5000, 10000]
 TRAIN_SPLIT = 0.85
 VAL_SPLIT = 0.15
 TEST_CHROMOSOMES = [20, 21]
 
 NUCLEOTIDE_TRANSFORMER_WINDOW_LIMITS = {
-    "InstaDeepAI/nucleotide-transformer-500m-human-ref": 1000,
-    "InstaDeepAI/nucleotide-transformer-v2-100m-multi-species": 2000,
-    "InstaDeepAI/nucleotide-transformer-v2-250m-multi-species": 2000,
+    "InstaDeepAI/nucleotide-transformer-500m-human-ref": 5000,
+    "InstaDeepAI/nucleotide-transformer-v2-100m-multi-species": 12000,
+    "InstaDeepAI/nucleotide-transformer-v2-250m-multi-species": 12000,
 }
 
 
@@ -59,8 +59,7 @@ def get_model_window_skip_reason(model_name, model_id, window_size):
 
     return (
         f"Skipping {model_id} for window {window_size}: "
-        f"NT v2 is limited to window sizes <= {max_window_size} "
-        f"(practical tokenizer/model limit ~2048 tokens)."
+        f"NT v2 is limited to window sizes <= {max_window_size}."
     )
 
 # Model configurations (Tối ưu riêng cho Human Genome)
@@ -151,6 +150,7 @@ EMBEDDING_CONFIG = {
         600: 128,       # Sequence vừa -> Giảm một nửa
         1000: 64,       # Sequence dài -> Giảm tiếp để tránh OOM
         2000: 32,       # Window 2000 vẫn khá nặng, giảm thêm để an toàn VRAM
+        5000: 8,        # Window 5000 dài hơn rõ rệt, dùng batch nhỏ để tránh OOM
         10000: 4,       # ĐẶC BIỆT LƯU Ý: 10000 bp cực kỳ tốn VRAM, chỉ chạy batch 4 hoặc 8.
     }
 }
