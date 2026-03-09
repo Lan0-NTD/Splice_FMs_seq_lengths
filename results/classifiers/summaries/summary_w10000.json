@@ -20,6 +20,26 @@
     "ROC-AUC":0.8767852131
   },
   {
+    "Experiment":"NucleotideTransformer_InstaDeepAI\/nucleotide-transformer-v2-100m-multi-species_w10000",
+    "Window":10000,
+    "Accuracy":0.7114610044,
+    "Balanced Acc":0.7112444911,
+    "F1 (weighted)":0.711191433,
+    "F1 (macro)":0.7108206766,
+    "MCC":0.5678373075,
+    "ROC-AUC":0.875479877
+  },
+  {
+    "Experiment":"NucleotideTransformer_InstaDeepAI\/nucleotide-transformer-v2-250m-multi-species_w10000",
+    "Window":10000,
+    "Accuracy":0.6809717458,
+    "Balanced Acc":0.6807391616,
+    "F1 (weighted)":0.6801199117,
+    "F1 (macro)":0.6797253649,
+    "MCC":0.5224839381,
+    "ROC-AUC":0.8537158138
+  },
+  {
     "Experiment":"DNABert_zhihan1996\/DNABERT-2-117M_w10000",
     "Window":10000,
     "Accuracy":0.3421190051,

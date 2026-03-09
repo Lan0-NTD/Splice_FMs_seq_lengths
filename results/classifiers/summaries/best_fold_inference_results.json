@@ -2561,6 +2561,128 @@
       ]
     }
   },
+  "NucleotideTransformer_InstaDeepAI/nucleotide-transformer-500m-human-ref_w2000": {
+    "window_size": 2000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "InstaDeepAI/nucleotide-transformer-500m-human-ref",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-500m-human-ref_w2000\\checkpoints\\best_fold1.pt",
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.918790775299651,
+        "balanced_accuracy": 0.9189472622094593,
+        "cohen_kappa": 0.8781797784604347,
+        "mcc": 0.8781841357476844,
+        "precision_macro": 0.919031800932577,
+        "precision_weighted": 0.9188813936398758,
+        "recall_macro": 0.9189472622094593,
+        "recall_weighted": 0.918790775299651,
+        "f1_macro": 0.9189849464737883,
+        "f1_weighted": 0.9188314850235285,
+        "precision_Other": 0.882794975325258,
+        "recall_Other": 0.8860745243723968,
+        "f1_Other": 0.8844317096466093,
+        "precision_Donor": 0.9448818897637795,
+        "recall_Donor": 0.9389884327511907,
+        "f1_Donor": 0.9419259427791365,
+        "precision_Acceptor": 0.9294185377086932,
+        "recall_Acceptor": 0.9317788295047905,
+        "f1_Acceptor": 0.9305971869956191,
+        "sensitivity_Other": 0.8860745243723968,
+        "specificity_Other": 0.9402208111664092,
+        "sensitivity_Donor": 0.9389884327511907,
+        "specificity_Donor": 0.9724723583722786,
+        "sensitivity_Acceptor": 0.9317788295047905,
+        "specificity_Acceptor": 0.9653691881814587,
+        "roc_auc_macro": 0.9854897115137914,
+        "roc_auc_weighted": 0.9854282352155022,
+        "roc_auc_Other": 0.9733551114046898,
+        "roc_auc_Donor": 0.9922564914873534,
+        "roc_auc_Acceptor": 0.990857531649331,
+        "pr_auc_Other": 0.9499398051619605,
+        "pr_auc_Donor": 0.9853977525885954,
+        "pr_auc_Acceptor": 0.9814007279305255,
+        "top1_accuracy": 0.918790775299651,
+        "top2_accuracy": 0.9946138673949325
+      },
+      "confusion_matrix": [
+        [
+          7871,
+          441,
+          571
+        ],
+        [
+          496,
+          8280,
+          42
+        ],
+        [
+          549,
+          42,
+          8072
+        ]
+      ]
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.9119423339177869,
+        "balanced_accuracy": 0.911927532730093,
+        "cohen_kappa": 0.8679126661719333,
+        "mcc": 0.8680460305308202,
+        "precision_macro": 0.9128128957211844,
+        "precision_weighted": 0.9128177957139237,
+        "recall_macro": 0.911927532730093,
+        "recall_weighted": 0.9119423339177869,
+        "f1_macro": 0.9122340493964769,
+        "f1_weighted": 0.9122439842941243,
+        "precision_Other": 0.8589707337763325,
+        "recall_Other": 0.8877118644067796,
+        "f1_Other": 0.8731048358123159,
+        "precision_Donor": 0.9439259204821048,
+        "recall_Donor": 0.9366977829638273,
+        "f1_Donor": 0.9402979611259563,
+        "precision_Acceptor": 0.9355420329051161,
+        "recall_Acceptor": 0.9113729508196722,
+        "f1_Acceptor": 0.9232993512511585,
+        "sensitivity_Other": 0.8877118644067796,
+        "specificity_Other": 0.9271259497369959,
+        "sensitivity_Donor": 0.9366977829638273,
+        "specificity_Donor": 0.9721044164960515,
+        "sensitivity_Acceptor": 0.9113729508196722,
+        "specificity_Acceptor": 0.9686861313868613,
+        "roc_auc_macro": 0.9828409305875357,
+        "roc_auc_weighted": 0.9828424791125591,
+        "roc_auc_Other": 0.9675163036832186,
+        "roc_auc_Donor": 0.9918280071972365,
+        "roc_auc_Acceptor": 0.9891784808821518,
+        "pr_auc_Other": 0.9369066813115299,
+        "pr_auc_Donor": 0.984453228978304,
+        "pr_auc_Acceptor": 0.9777199894010353,
+        "top1_accuracy": 0.9119423339177869,
+        "top2_accuracy": 0.9954461328657705
+      },
+      "confusion_matrix": [
+        [
+          12151,
+          700,
+          837
+        ],
+        [
+          847,
+          12844,
+          21
+        ],
+        [
+          1148,
+          63,
+          12453
+        ]
+      ]
+    }
+  },
   "NucleotideTransformer_InstaDeepAI/nucleotide-transformer-v2-100m-multi-species_w2000": {
     "window_size": 2000,
     "model_name": "NucleotideTransformer",
@@ -3167,6 +3289,250 @@
           6051,
           4614,
           2999
+        ]
+      ]
+    }
+  },
+  "NucleotideTransformer_InstaDeepAI/nucleotide-transformer-v2-100m-multi-species_w10000": {
+    "window_size": 10000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "InstaDeepAI/nucleotide-transformer-v2-100m-multi-species",
+    "best_fold_number": 2,
+    "checkpoint": "best_fold2.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-100m-multi-species_w10000\\checkpoints\\best_fold2.pt",
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.7019041116674253,
+        "balanced_accuracy": 0.7023867295785898,
+        "cohen_kappa": 0.5529907216611747,
+        "mcc": 0.5537246875867802,
+        "precision_macro": 0.7042933181239639,
+        "precision_weighted": 0.7042922954339289,
+        "recall_macro": 0.7023867295785898,
+        "recall_weighted": 0.7019041116674253,
+        "f1_macro": 0.7024248005126142,
+        "f1_weighted": 0.7021892268108328,
+        "precision_Other": 0.6164802825191289,
+        "recall_Other": 0.589553078914781,
+        "f1_Other": 0.6027160777995166,
+        "precision_Donor": 0.828757225433526,
+        "recall_Donor": 0.7804490814243593,
+        "f1_Donor": 0.8038780516294826,
+        "precision_Acceptor": 0.6676424464192368,
+        "recall_Acceptor": 0.7371580283966294,
+        "f1_Acceptor": 0.7006802721088435,
+        "sensitivity_Other": 0.589553078914781,
+        "specificity_Other": 0.8136262227561353,
+        "sensitivity_Donor": 0.7804490814243593,
+        "specificity_Donor": 0.9189558873817394,
+        "sensitivity_Acceptor": 0.7371580283966294,
+        "specificity_Acceptor": 0.8204056268007457,
+        "roc_auc_macro": 0.8691038857209022,
+        "roc_auc_weighted": 0.8689106891731104,
+        "roc_auc_Other": 0.8027994473058842,
+        "roc_auc_Donor": 0.9303525480778168,
+        "roc_auc_Acceptor": 0.8741596617790056,
+        "pr_auc_Other": 0.6780528554420086,
+        "pr_auc_Donor": 0.8929839070237435,
+        "pr_auc_Acceptor": 0.7553982962646633,
+        "top1_accuracy": 0.7019041116674253,
+        "top2_accuracy": 0.9315354270975573
+      },
+      "confusion_matrix": [
+        [
+          5237,
+          1061,
+          2585
+        ],
+        [
+          1342,
+          6882,
+          594
+        ],
+        [
+          1916,
+          361,
+          6386
+        ]
+      ]
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.7125462692382623,
+        "balanced_accuracy": 0.7125097364003269,
+        "cohen_kappa": 0.5688356690561054,
+        "mcc": 0.5696404031078236,
+        "precision_macro": 0.7127123673046363,
+        "precision_weighted": 0.7128041747932511,
+        "recall_macro": 0.7125097364003269,
+        "recall_weighted": 0.7125462692382623,
+        "f1_macro": 0.7116824759196314,
+        "f1_weighted": 0.7117475446960522,
+        "precision_Other": 0.6255225175487026,
+        "recall_Other": 0.5794126241963764,
+        "f1_Other": 0.6015853149770547,
+        "precision_Donor": 0.8348485986926141,
+        "recall_Donor": 0.8103121353558926,
+        "f1_Donor": 0.8223973946190001,
+        "precision_Acceptor": 0.6777659856725922,
+        "recall_Acceptor": 0.747804449648712,
+        "f1_Acceptor": 0.7110647181628392,
+        "sensitivity_Other": 0.5794126241963764,
+        "specificity_Other": 0.8265634132086499,
+        "sensitivity_Donor": 0.8103121353558926,
+        "specificity_Donor": 0.9196402456858731,
+        "sensitivity_Acceptor": 0.747804449648712,
+        "specificity_Acceptor": 0.8227007299270073,
+        "roc_auc_macro": 0.8756108247587298,
+        "roc_auc_weighted": 0.8756463593107078,
+        "roc_auc_Other": 0.8046263707950345,
+        "roc_auc_Donor": 0.9415028609577784,
+        "roc_auc_Acceptor": 0.8807032425233765,
+        "pr_auc_Other": 0.6695415604638001,
+        "pr_auc_Donor": 0.9058980847722753,
+        "pr_auc_Acceptor": 0.7665141212485012,
+        "top1_accuracy": 0.7125462692382623,
+        "top2_accuracy": 0.9398986947204364
+      },
+      "confusion_matrix": [
+        [
+          7931,
+          1675,
+          4082
+        ],
+        [
+          1825,
+          11111,
+          776
+        ],
+        [
+          2923,
+          523,
+          10218
+        ]
+      ]
+    }
+  },
+  "NucleotideTransformer_InstaDeepAI/nucleotide-transformer-v2-250m-multi-species_w10000": {
+    "window_size": 10000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "InstaDeepAI/nucleotide-transformer-v2-250m-multi-species",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-250m-multi-species_w10000\\checkpoints\\best_fold1.pt",
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.6779320285237445,
+        "balanced_accuracy": 0.6782711185590463,
+        "cohen_kappa": 0.517022739092502,
+        "mcc": 0.5174842508436462,
+        "precision_macro": 0.6780139783037287,
+        "precision_weighted": 0.6780735116597867,
+        "recall_macro": 0.6782711185590463,
+        "recall_weighted": 0.6779320285237445,
+        "f1_macro": 0.6775804777680351,
+        "f1_weighted": 0.677443141247772,
+        "precision_Other": 0.6105035452469655,
+        "recall_Other": 0.5718788697512102,
+        "f1_Other": 0.5905603348058591,
+        "precision_Donor": 0.7839612858624265,
+        "recall_Donor": 0.7716035382172828,
+        "f1_Donor": 0.7777333257129794,
+        "precision_Acceptor": 0.6395771038017941,
+        "recall_Acceptor": 0.691330947708646,
+        "f1_Acceptor": 0.6644477727852666,
+        "sensitivity_Other": 0.5718788697512102,
+        "specificity_Other": 0.8145987071677822,
+        "sensitivity_Donor": 0.7716035382172828,
+        "specificity_Donor": 0.8931380371594665,
+        "sensitivity_Acceptor": 0.691330947708646,
+        "specificity_Acceptor": 0.809332806056155,
+        "roc_auc_macro": 0.8497666864770785,
+        "roc_auc_weighted": 0.8496338858886612,
+        "roc_auc_Other": 0.7897849989080955,
+        "roc_auc_Donor": 0.9123138900392777,
+        "roc_auc_Acceptor": 0.8472011704838626,
+        "pr_auc_Other": 0.660517399080695,
+        "pr_auc_Donor": 0.8708451513107308,
+        "pr_auc_Acceptor": 0.7125000477406309,
+        "top1_accuracy": 0.6779320285237445,
+        "top2_accuracy": 0.9124563799120012
+      },
+      "confusion_matrix": [
+        [
+          5080,
+          1208,
+          2595
+        ],
+        [
+          1234,
+          6804,
+          780
+        ],
+        [
+          2007,
+          667,
+          5989
+        ]
+      ]
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.6797438145334113,
+        "balanced_accuracy": 0.6796886815753705,
+        "cohen_kappa": 0.5196275464257765,
+        "mcc": 0.5203005521286913,
+        "precision_macro": 0.6784615856357806,
+        "precision_weighted": 0.6785496614158146,
+        "recall_macro": 0.6796886815753705,
+        "recall_weighted": 0.6797438145334113,
+        "f1_macro": 0.6782698354030007,
+        "f1_weighted": 0.6783421369686542,
+        "precision_Other": 0.6013941190609727,
+        "recall_Other": 0.5483635300993571,
+        "f1_Other": 0.5736558523443769,
+        "precision_Donor": 0.792344148742253,
+        "recall_Donor": 0.7925175029171528,
+        "f1_Donor": 0.7924308163488534,
+        "precision_Acceptor": 0.6416464891041163,
+        "recall_Acceptor": 0.6981850117096019,
+        "f1_Acceptor": 0.6687228375157718,
+        "sensitivity_Other": 0.5483635300993571,
+        "specificity_Other": 0.818271478667446,
+        "sensitivity_Donor": 0.7925175029171528,
+        "specificity_Donor": 0.89587598713074,
+        "sensitivity_Acceptor": 0.6981850117096019,
+        "specificity_Acceptor": 0.8055474452554745,
+        "roc_auc_macro": 0.8522382477457419,
+        "roc_auc_weighted": 0.8522830045146512,
+        "roc_auc_Other": 0.7839713217471369,
+        "roc_auc_Donor": 0.9246611265470126,
+        "roc_auc_Acceptor": 0.848082294943076,
+        "pr_auc_Other": 0.6391368649867938,
+        "pr_auc_Donor": 0.885569824213212,
+        "pr_auc_Acceptor": 0.7142304067149892,
+        "top1_accuracy": 0.6797438145334113,
+        "top2_accuracy": 0.9208552503409312
+      },
+      "confusion_matrix": [
+        [
+          7506,
+          1917,
+          4265
+        ],
+        [
+          1782,
+          10867,
+          1063
+        ],
+        [
+          3193,
+          931,
+          9540
         ]
       ]
     }

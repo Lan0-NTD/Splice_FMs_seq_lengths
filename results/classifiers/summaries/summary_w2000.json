@@ -1,5 +1,15 @@
 [
   {
+    "Experiment":"NucleotideTransformer_InstaDeepAI\/nucleotide-transformer-500m-human-ref_w2000",
+    "Window":2000,
+    "Accuracy":0.9220121588,
+    "Balanced Acc":0.9219903129,
+    "F1 (weighted)":0.9218602718,
+    "F1 (macro)":0.9218097785,
+    "MCC":0.8830841066,
+    "ROC-AUC":0.9862744185
+  },
+  {
     "Experiment":"NucleotideTransformer_InstaDeepAI\/nucleotide-transformer-v2-250m-multi-species_w2000",
     "Window":2000,
     "Accuracy":0.8346557538,
