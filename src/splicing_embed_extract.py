@@ -274,7 +274,7 @@ class EmbeddingExtractor:
         logger.info(f"✓ Saved embeddings: {output_path}")
         logger.info(f"  Shape: embeddings={data_dict['embeddings'].shape}, labels={data_dict['labels'].shape}")
     
-    def extract_for_window_and_model(self, window_size, model_name, model_id):
+    def extract_for_window_and_model(self, window_size, model_name, model_id, output_suffix=""):
         """Extract embeddings for one window size and one model"""
 
         skip_reason = get_model_window_skip_reason(model_name, model_id, window_size)
@@ -283,7 +283,8 @@ class EmbeddingExtractor:
             return 'unsupported'
         
         logger.info(f"\n{'='*70}")
-        logger.info(f"Extracting: {model_name}_{model_id} | Window Size: {window_size}")
+        combo_name = f"{model_name}_{model_id}{output_suffix}"
+        logger.info(f"Extracting: {combo_name} | Window Size: {window_size}")
         logger.info(f"{'='*70}")
         
         # Get adaptive batch size based on window size
@@ -294,7 +295,7 @@ class EmbeddingExtractor:
         logger.info(f"Using max_length: {max_length}")
         
         # Create output directory
-        model_dir = self.embed_dir / str(window_size) / f"{model_name}_{model_id}"
+        model_dir = self.embed_dir / str(window_size) / combo_name
         model_dir.mkdir(parents=True, exist_ok=True)
         
         # Check if all embeddings already exist
@@ -322,6 +323,7 @@ class EmbeddingExtractor:
 
         # Use a safe per-model max_length (DNABERT is typically much shorter than 10k)
         effective_max_length = max_length
+        extraction_method = 'center'
         if model_name == "DNABert":
             tokenizer_max_len = getattr(tokenizer, "model_max_length", None)
             if isinstance(tokenizer_max_len, int) and 0 < tokenizer_max_len < 100000:
@@ -329,6 +331,8 @@ class EmbeddingExtractor:
             else:
                 effective_max_length = min(max_length, 512)
             logger.info(f"DNABERT effective max_length: {effective_max_length}")
+            extraction_method = 'cls'
+        logger.info(f"Embedding pooling method for {model_name}: {extraction_method}")
         
         # Load and split gencode data
         try:
@@ -360,7 +364,7 @@ class EmbeddingExtractor:
                 output_file=model_dir / "trainval_embeddings.pt",
                 max_length=effective_max_length,
                 batch_size=adaptive_batch_size,
-                method='center',
+                method=extraction_method,
                 use_fp16_current=use_fp16_current,
             )
             if not ok:
@@ -386,7 +390,7 @@ class EmbeddingExtractor:
                 output_file=model_dir / "test_embeddings.pt",
                 max_length=effective_max_length,
                 batch_size=adaptive_batch_size,
-                method='center',
+                method=extraction_method,
                 use_fp16_current=use_fp16_current,
             )
             if not ok:
@@ -416,7 +420,7 @@ class EmbeddingExtractor:
                 output_file=model_dir / "gtex_test_embeddings.pt",
                 max_length=effective_max_length,
                 batch_size=adaptive_batch_size,
-                method='center',
+                method=extraction_method,
                 use_fp16_current=use_fp16_current,
             )
             if not ok:
@@ -425,7 +429,7 @@ class EmbeddingExtractor:
             logger.error(f"✗ Failed to extract GTEx embeddings: {e}")
             return False
         
-        logger.info(f"\n✓ Successfully extracted all embeddings for {model_name}_{model_id} (window {window_size})")
+        logger.info(f"\n✓ Successfully extracted all embeddings for {combo_name} (window {window_size})")
 
         import gc
         del model
@@ -436,7 +440,7 @@ class EmbeddingExtractor:
 
         return True
     
-    def extract_all(self, window_sizes=None, models_config=None):
+    def extract_all(self, window_sizes=None, models_config=None, output_suffix=""):
         """Extract embeddings for all combinations"""
         
         if window_sizes is None:
@@ -474,7 +478,12 @@ class EmbeddingExtractor:
                     stats['total_started'] += 1
                     
                     try:
-                        result = self.extract_for_window_and_model(window_size, model_name, model_id)
+                        result = self.extract_for_window_and_model(
+                            window_size,
+                            model_name,
+                            model_id,
+                            output_suffix=output_suffix,
+                        )
                         
                         if result == 'skipped':
                             stats['total_skipped'] += 1
