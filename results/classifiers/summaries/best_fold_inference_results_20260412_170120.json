@@ -1,0 +1,2525 @@
+{
+  "DNABERT-2-117M_w1000": {
+    "window_size": 1000,
+    "model_name": "DNABert",
+    "model_id": "DNABERT-2-117M",
+    "best_fold_number": 4,
+    "checkpoint": "best_fold4.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\DNABert_zhihan1996\\DNABERT-2-117M_w1000\\checkpoints\\best_fold4.pt",
+    "model_inference_seconds_total": 0.16540459997486323,
+    "gencode_test": {
+      "num_samples": 26315,
+      "metrics": {
+        "accuracy": 0.34109823294698843,
+        "balanced_accuracy": 0.3394086370106299,
+        "mcc": 0.01635871298446833,
+        "f1_macro": 0.23472948846150476,
+        "f1_weighted": 0.2354543028206886,
+        "f1_Other": 0.4896195922426653,
+        "f1_Donor": 0.093935790725327,
+        "f1_Acceptor": 0.1206330824165219,
+        "roc_auc_macro": 0.5064075051129443,
+        "roc_auc_weighted": 0.5064122366638385,
+        "roc_auc_Other": 0.5057188513399429,
+        "roc_auc_Donor": 0.5079163770311053,
+        "roc_auc_Acceptor": 0.5055872869677849,
+        "pr_auc_Other": 0.3401391869785989,
+        "pr_auc_Donor": 0.3430922800396156,
+        "pr_auc_Acceptor": 0.3383509341450511
+      },
+      "confusion_matrix": [
+        [
+          7877,
+          420,
+          530
+        ],
+        [
+          7807,
+          474,
+          541
+        ],
+        [
+          7665,
+          376,
+          625
+        ]
+      ],
+      "running_time_seconds": 0.10305330000119284
+    },
+    "gtex_test": {
+      "num_samples": 41258,
+      "metrics": {
+        "accuracy": 0.33755877647971305,
+        "balanced_accuracy": 0.3375605677274837,
+        "mcc": 0.01128669820063868,
+        "f1_macro": 0.23223235324240343,
+        "f1_weighted": 0.2322233775379114,
+        "f1_Other": 0.4867080547596307,
+        "f1_Donor": 0.09393766989063784,
+        "f1_Acceptor": 0.11605133507694179,
+        "roc_auc_macro": 0.502651278129368,
+        "roc_auc_weighted": 0.5026552645637604,
+        "roc_auc_Other": 0.5014530160912951,
+        "roc_auc_Donor": 0.5069186633968017,
+        "roc_auc_Acceptor": 0.4995821549000073,
+        "pr_auc_Other": 0.33580291748917956,
+        "pr_auc_Donor": 0.3390027495211597,
+        "pr_auc_Acceptor": 0.3366297222378702
+      },
+      "confusion_matrix": [
+        [
+          12230,
+          656,
+          867
+        ],
+        [
+          12142,
+          743,
+          890
+        ],
+        [
+          12131,
+          645,
+          954
+        ]
+      ],
+      "running_time_seconds": 0.01840309999533929
+    }
+  },
+  "DNABERT-2-117M_w10000": {
+    "window_size": 10000,
+    "model_name": "DNABert",
+    "model_id": "DNABERT-2-117M",
+    "best_fold_number": 5,
+    "checkpoint": "best_fold5.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\DNABert_zhihan1996\\DNABERT-2-117M_w10000\\checkpoints\\best_fold5.pt",
+    "model_inference_seconds_total": 0.07459209999069571,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.3350781368532848,
+        "balanced_accuracy": 0.3323178282039264,
+        "mcc": -0.0018788908988982347,
+        "f1_macro": 0.26038067422578415,
+        "f1_weighted": 0.2623584298408244,
+        "f1_Other": 0.44549763033175355,
+        "f1_Donor": 0.33403111739745406,
+        "f1_Acceptor": 0.0016132749481447338,
+        "roc_auc_macro": 0.5016584609996305,
+        "roc_auc_weighted": 0.5016459121792669,
+        "roc_auc_Other": 0.5028088359267378,
+        "roc_auc_Donor": 0.49789123787682654,
+        "roc_auc_Acceptor": 0.5042753091953274,
+        "pr_auc_Other": 0.34103293080482117,
+        "pr_auc_Donor": 0.32975063965437923,
+        "pr_auc_Acceptor": 0.3326084623106153
+      },
+      "confusion_matrix": [
+        [
+          5875,
+          3005,
+          3
+        ],
+        [
+          5861,
+          2952,
+          5
+        ],
+        [
+          5756,
+          2900,
+          7
+        ]
+      ],
+      "running_time_seconds": 0.011760699999285862
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.3356711474771089,
+        "balanced_accuracy": 0.33547282134445583,
+        "mcc": 0.003918472110757256,
+        "f1_macro": 0.26172613389513005,
+        "f1_weighted": 0.26192313114778415,
+        "f1_Other": 0.44606991706827803,
+        "f1_Donor": 0.33808539195414805,
+        "f1_Acceptor": 0.0010230926629640456,
+        "roc_auc_macro": 0.5021039486241191,
+        "roc_auc_weighted": 0.5021046047581271,
+        "roc_auc_Other": 0.5025722968767773,
+        "roc_auc_Donor": 0.5024310971417021,
+        "roc_auc_Acceptor": 0.5013084518538777,
+        "pr_auc_Other": 0.3348498750129282,
+        "pr_auc_Donor": 0.33476083463973944,
+        "pr_auc_Acceptor": 0.3344109519275996
+      },
+      "confusion_matrix": [
+        [
+          9117,
+          4566,
+          5
+        ],
+        [
+          9044,
+          4660,
+          8
+        ],
+        [
+          9028,
+          4629,
+          7
+        ]
+      ],
+      "running_time_seconds": 0.017474300009780563
+    }
+  },
+  "DNABERT-2-117M_w2000": {
+    "window_size": 2000,
+    "model_name": "DNABert",
+    "model_id": "DNABERT-2-117M",
+    "best_fold_number": 3,
+    "checkpoint": "best_fold3.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\DNABert_zhihan1996\\DNABERT-2-117M_w2000\\checkpoints\\best_fold3.pt",
+    "model_inference_seconds_total": 0.0735009999916656,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.33037475345167655,
+        "balanced_accuracy": 0.33078396074117045,
+        "mcc": -0.003998227062433493,
+        "f1_macro": 0.3025346810087868,
+        "f1_weighted": 0.3023172711657826,
+        "f1_Other": 0.3865961883516803,
+        "f1_Donor": 0.1462422634836428,
+        "f1_Acceptor": 0.3747655911910372,
+        "roc_auc_macro": 0.49756777398277113,
+        "roc_auc_weighted": 0.4976161578865683,
+        "roc_auc_Other": 0.4995787420681561,
+        "roc_auc_Donor": 0.5029431305048736,
+        "roc_auc_Acceptor": 0.49018144937528374,
+        "pr_auc_Other": 0.33816472091067307,
+        "pr_auc_Donor": 0.3348379685108383,
+        "pr_auc_Acceptor": 0.322347933008888
+      },
+      "confusion_matrix": [
+        [
+          3986,
+          844,
+          4053
+        ],
+        [
+          3807,
+          827,
+          4184
+        ],
+        [
+          3945,
+          821,
+          3897
+        ]
+      ],
+      "running_time_seconds": 0.0115217999991728
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.3350379894798364,
+        "balanced_accuracy": 0.3352496635581806,
+        "mcc": 0.003074237994470064,
+        "f1_macro": 0.3077770775688346,
+        "f1_weighted": 0.3076407057340147,
+        "f1_Other": 0.38393756294058407,
+        "f1_Donor": 0.1530307301945306,
+        "f1_Acceptor": 0.3863629395713892,
+        "roc_auc_macro": 0.5001964707466466,
+        "roc_auc_weighted": 0.5002014346538405,
+        "roc_auc_Other": 0.49924937691522964,
+        "roc_auc_Donor": 0.504916640266675,
+        "roc_auc_Acceptor": 0.4964233950580352,
+        "pr_auc_Other": 0.3355935014239252,
+        "pr_auc_Donor": 0.33461820746530396,
+        "pr_auc_Acceptor": 0.32949801517513666
+      },
+      "confusion_matrix": [
+        [
+          6100,
+          1359,
+          6229
+        ],
+        [
+          5932,
+          1357,
+          6423
+        ],
+        [
+          6056,
+          1307,
+          6301
+        ]
+      ],
+      "running_time_seconds": 0.018643999996129423
+    }
+  },
+  "DNABERT-2-117M_w300": {
+    "window_size": 300,
+    "model_name": "DNABert",
+    "model_id": "DNABERT-2-117M",
+    "best_fold_number": 5,
+    "checkpoint": "best_fold5.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\DNABert_zhihan1996\\DNABERT-2-117M_w300\\checkpoints\\best_fold5.pt",
+    "model_inference_seconds_total": 0.07586590001301374,
+    "gencode_test": {
+      "num_samples": 26450,
+      "metrics": {
+        "accuracy": 0.33497164461247636,
+        "balanced_accuracy": 0.33053773720167384,
+        "mcc": -0.006187177511691105,
+        "f1_macro": 0.23863706718040503,
+        "f1_weighted": 0.24128746792917846,
+        "f1_Other": 0.47372072280400385,
+        "f1_Donor": 0.24195974500393955,
+        "f1_Acceptor": 0.00023073373327180433,
+        "roc_auc_macro": 0.4871147170213764,
+        "roc_auc_weighted": 0.4870870871338726,
+        "roc_auc_Other": 0.484931986007608,
+        "roc_auc_Donor": 0.4865716263521529,
+        "roc_auc_Acceptor": 0.4898405387043683,
+        "pr_auc_Other": 0.3271384979767158,
+        "pr_auc_Donor": 0.32564785495904847,
+        "pr_auc_Acceptor": 0.31901775742045235
+      },
+      "confusion_matrix": [
+        [
+          7170,
+          1791,
+          1
+        ],
+        [
+          7133,
+          1689,
+          0
+        ],
+        [
+          7006,
+          1659,
+          1
+        ]
+      ],
+      "running_time_seconds": 0.01141789999383036
+    },
+    "gtex_test": {
+      "num_samples": 41262,
+      "metrics": {
+        "accuracy": 0.335126751005768,
+        "balanced_accuracy": 0.3350244195520217,
+        "mcc": 0.0037184550733153866,
+        "f1_macro": 0.2397299860143048,
+        "f1_weighted": 0.23985987693747976,
+        "f1_Other": 0.47470007431786815,
+        "f1_Donor": 0.24405310713627143,
+        "f1_Acceptor": 0.00043677658877484165,
+        "roc_auc_macro": 0.4965315979013869,
+        "roc_auc_weighted": 0.49653285917450474,
+        "roc_auc_Other": 0.5005748324455335,
+        "roc_auc_Donor": 0.4956927681608029,
+        "roc_auc_Acceptor": 0.4933271930978244,
+        "pr_auc_Other": 0.3352146420987264,
+        "pr_auc_Donor": 0.3303983998886765,
+        "pr_auc_Acceptor": 0.3249302064948244
+      },
+      "confusion_matrix": [
+        [
+          11178,
+          2574,
+          2
+        ],
+        [
+          11129,
+          2647,
+          0
+        ],
+        [
+          11034,
+          2695,
+          3
+        ]
+      ],
+      "running_time_seconds": 0.018860900003346615
+    }
+  },
+  "DNABERT-2-117M_w600": {
+    "window_size": 600,
+    "model_name": "DNABert",
+    "model_id": "DNABERT-2-117M",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\DNABert_zhihan1996\\DNABERT-2-117M_w600\\checkpoints\\best_fold1.pt",
+    "model_inference_seconds_total": 0.07474799996998627,
+    "gencode_test": {
+      "num_samples": 26401,
+      "metrics": {
+        "accuracy": 0.32922995341085565,
+        "balanced_accuracy": 0.32662033961566417,
+        "mcc": -0.011726887124425158,
+        "f1_macro": 0.2626133123123047,
+        "f1_weighted": 0.2646534818924191,
+        "f1_Other": 0.4070788764240369,
+        "f1_Donor": 0.3791487145495005,
+        "f1_Acceptor": 0.001612345963376713,
+        "roc_auc_macro": 0.4907554986200338,
+        "roc_auc_weighted": 0.49074214944696143,
+        "roc_auc_Other": 0.4902995943864801,
+        "roc_auc_Donor": 0.4892181705905687,
+        "roc_auc_Acceptor": 0.49274873088305265,
+        "pr_auc_Other": 0.3329027008437372,
+        "pr_auc_Donor": 0.32566402046313075,
+        "pr_auc_Acceptor": 0.32105212264527244
+      },
+      "confusion_matrix": [
+        [
+          4681,
+          4224,
+          8
+        ],
+        [
+          4816,
+          4004,
+          2
+        ],
+        [
+          4588,
+          4071,
+          7
+        ]
+      ],
+      "running_time_seconds": 0.012478499993449077
+    },
+    "gtex_test": {
+      "num_samples": 41261,
+      "metrics": {
+        "accuracy": 0.33159642277210927,
+        "balanced_accuracy": 0.331345734923516,
+        "mcc": -0.003455261643004372,
+        "f1_macro": 0.26516715177403555,
+        "f1_weighted": 0.26537688544711824,
+        "f1_Other": 0.4112263914772885,
+        "f1_Donor": 0.38282178670486755,
+        "f1_Acceptor": 0.0014532771399505887,
+        "roc_auc_macro": 0.4951241732627363,
+        "roc_auc_weighted": 0.4951260296706356,
+        "roc_auc_Other": 0.49762904086402293,
+        "roc_auc_Donor": 0.49554606862955763,
+        "roc_auc_Acceptor": 0.49219741029462816,
+        "pr_auc_Other": 0.33145389837964934,
+        "pr_auc_Donor": 0.32881630117140365,
+        "pr_auc_Acceptor": 0.3256474452598819
+      },
+      "confusion_matrix": [
+        [
+          7392,
+          6345,
+          17
+        ],
+        [
+          7492,
+          6280,
+          4
+        ],
+        [
+          7313,
+          6408,
+          10
+        ]
+      ],
+      "running_time_seconds": 0.018999399995664135
+    }
+  },
+  "hyenadna-medium-160k-seqlen-hf_w1000": {
+    "window_size": 1000,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-medium-160k-seqlen-hf",
+    "best_fold_number": 3,
+    "checkpoint": "best_fold3.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-medium-160k-seqlen-hf_w1000\\checkpoints\\best_fold3.pt",
+    "model_inference_seconds_total": 0.052115399987087585,
+    "gencode_test": {
+      "num_samples": 26315,
+      "metrics": {
+        "accuracy": 0.5840395211856356,
+        "balanced_accuracy": 0.5814347386385763,
+        "mcc": 0.4112525905867631,
+        "f1_macro": 0.5264718960529814,
+        "f1_weighted": 0.5281265267225671,
+        "f1_Other": 0.5378766805748725,
+        "f1_Donor": 0.7938144329896907,
+        "f1_Acceptor": 0.2477245745943807,
+        "roc_auc_macro": 0.8737710329484472,
+        "roc_auc_weighted": 0.8734321222669844,
+        "roc_auc_Other": 0.7451689282788782,
+        "roc_auc_Donor": 0.949325547493992,
+        "roc_auc_Acceptor": 0.9268186230724714,
+        "pr_auc_Other": 0.6348287713866633,
+        "pr_auc_Donor": 0.8944058260077936,
+        "pr_auc_Acceptor": 0.8055735227989425
+      },
+      "confusion_matrix": [
+        [
+          5801,
+          2836,
+          190
+        ],
+        [
+          506,
+          8316,
+          0
+        ],
+        [
+          6436,
+          978,
+          1252
+        ]
+      ],
+      "running_time_seconds": 0.007887700005085208
+    },
+    "gtex_test": {
+      "num_samples": 41258,
+      "metrics": {
+        "accuracy": 0.5870376654224635,
+        "balanced_accuracy": 0.5865933304076709,
+        "mcc": 0.41752198308302463,
+        "f1_macro": 0.5305089700748201,
+        "f1_weighted": 0.5308042702540243,
+        "f1_Other": 0.5336671895740316,
+        "f1_Donor": 0.7996390977443609,
+        "f1_Acceptor": 0.25822062290606773,
+        "roc_auc_macro": 0.8779025603439575,
+        "roc_auc_weighted": 0.8779179935652606,
+        "roc_auc_Other": 0.7472912198178756,
+        "roc_auc_Donor": 0.9588093309356789,
+        "roc_auc_Acceptor": 0.9276071302783179,
+        "pr_auc_Other": 0.6527787193326815,
+        "pr_auc_Donor": 0.9110940303479604,
+        "pr_auc_Acceptor": 0.8074014032583534
+      },
+      "confusion_matrix": [
+        [
+          8845,
+          4601,
+          307
+        ],
+        [
+          481,
+          13294,
+          0
+        ],
+        [
+          10069,
+          1580,
+          2081
+        ]
+      ],
+      "running_time_seconds": 0.011996699991868809
+    }
+  },
+  "hyenadna-medium-160k-seqlen-hf_w10000": {
+    "window_size": 10000,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-medium-160k-seqlen-hf",
+    "best_fold_number": 2,
+    "checkpoint": "best_fold2.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-medium-160k-seqlen-hf_w10000\\checkpoints\\best_fold2.pt",
+    "model_inference_seconds_total": 0.05191890001879074,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.7622515551509634,
+        "balanced_accuracy": 0.7633035012773205,
+        "mcc": 0.6442885526346481,
+        "f1_macro": 0.7604983467099199,
+        "f1_weighted": 0.759736046896387,
+        "f1_Other": 0.6559384292461081,
+        "f1_Donor": 0.7792461503102736,
+        "f1_Acceptor": 0.8463104605733781,
+        "roc_auc_macro": 0.9038734843692637,
+        "roc_auc_weighted": 0.9033699206413565,
+        "roc_auc_Other": 0.8357599624269698,
+        "roc_auc_Donor": 0.9148994243999579,
+        "roc_auc_Acceptor": 0.9609610662808635,
+        "pr_auc_Other": 0.7159436908149736,
+        "pr_auc_Donor": 0.84403125072568,
+        "pr_auc_Acceptor": 0.9080085120528183
+      },
+      "confusion_matrix": [
+        [
+          5625,
+          1778,
+          1480
+        ],
+        [
+          1697,
+          6781,
+          340
+        ],
+        [
+          946,
+          27,
+          7690
+        ]
+      ],
+      "running_time_seconds": 0.007619700001669116
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.7805376972530684,
+        "balanced_accuracy": 0.7805996544143502,
+        "mcc": 0.6721317329002444,
+        "f1_macro": 0.777044605414755,
+        "f1_weighted": 0.7770080594183963,
+        "f1_Other": 0.6685745223915229,
+        "f1_Donor": 0.8000145470414954,
+        "f1_Acceptor": 0.8625447468112467,
+        "roc_auc_macro": 0.9124491973697797,
+        "roc_auc_weighted": 0.9124275169574557,
+        "roc_auc_Other": 0.8450004313589894,
+        "roc_auc_Donor": 0.9276259876320057,
+        "roc_auc_Acceptor": 0.9647211731183439,
+        "pr_auc_Other": 0.7319952803481421,
+        "pr_auc_Donor": 0.8612195882086082,
+        "pr_auc_Acceptor": 0.9123664447083848
+      },
+      "confusion_matrix": [
+        [
+          8644,
+          2735,
+          2309
+        ],
+        [
+          2322,
+          10999,
+          391
+        ],
+        [
+          1204,
+          51,
+          12409
+        ]
+      ],
+      "running_time_seconds": 0.013117999988025986
+    }
+  },
+  "hyenadna-medium-160k-seqlen-hf_w2000": {
+    "window_size": 2000,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-medium-160k-seqlen-hf",
+    "best_fold_number": 3,
+    "checkpoint": "best_fold3.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-medium-160k-seqlen-hf_w2000\\checkpoints\\best_fold3.pt",
+    "model_inference_seconds_total": 0.05796340000233613,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.646601426187225,
+        "balanced_accuracy": 0.6455652666998625,
+        "mcc": 0.48567419151098945,
+        "f1_macro": 0.6300322783236219,
+        "f1_weighted": 0.6302200918336085,
+        "f1_Other": 0.5396842979783993,
+        "f1_Donor": 0.7902133818928888,
+        "f1_Acceptor": 0.5601991550995775,
+        "roc_auc_macro": 0.8607379055528418,
+        "roc_auc_weighted": 0.8601135374912627,
+        "roc_auc_Other": 0.7228741482454024,
+        "roc_auc_Donor": 0.9502165315668186,
+        "roc_auc_Acceptor": 0.9091230368463045,
+        "pr_auc_Other": 0.5754730859896129,
+        "pr_auc_Donor": 0.8908419355657424,
+        "pr_auc_Acceptor": 0.7748919742944291
+      },
+      "confusion_matrix": [
+        [
+          4872,
+          3131,
+          880
+        ],
+        [
+          356,
+          8462,
+          0
+        ],
+        [
+          3944,
+          1006,
+          3713
+        ]
+      ],
+      "running_time_seconds": 0.007983899995451793
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.6584843171634521,
+        "balanced_accuracy": 0.6581760091050669,
+        "mcc": 0.5050729206960088,
+        "f1_macro": 0.6419934232920442,
+        "f1_weighted": 0.6421192095468966,
+        "f1_Other": 0.5441483707803394,
+        "f1_Donor": 0.7985260905741115,
+        "f1_Acceptor": 0.5833058085216817,
+        "roc_auc_macro": 0.8688885040686412,
+        "roc_auc_weighted": 0.8689152436428228,
+        "roc_auc_Other": 0.7336822303644449,
+        "roc_auc_Donor": 0.9593673466331841,
+        "roc_auc_Acceptor": 0.9136159352082942,
+        "pr_auc_Other": 0.6003450198591906,
+        "pr_auc_Donor": 0.9065602093846776,
+        "pr_auc_Acceptor": 0.7897123556532274
+      },
+      "confusion_matrix": [
+        [
+          7423,
+          4917,
+          1348
+        ],
+        [
+          276,
+          13436,
+          0
+        ],
+        [
+          5896,
+          1587,
+          6181
+        ]
+      ],
+      "running_time_seconds": 0.012715200005914085
+    }
+  },
+  "hyenadna-medium-160k-seqlen-hf_w300": {
+    "window_size": 300,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-medium-160k-seqlen-hf",
+    "best_fold_number": 5,
+    "checkpoint": "best_fold5.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-medium-160k-seqlen-hf_w300\\checkpoints\\best_fold5.pt",
+    "model_inference_seconds_total": 0.05088909996266011,
+    "gencode_test": {
+      "num_samples": 26450,
+      "metrics": {
+        "accuracy": 0.8031379962192816,
+        "balanced_accuracy": 0.8043117240159868,
+        "mcc": 0.7059962764760902,
+        "f1_macro": 0.8015643346840982,
+        "f1_weighted": 0.8008206172419848,
+        "f1_Other": 0.7135719743725386,
+        "f1_Donor": 0.842425952045134,
+        "f1_Acceptor": 0.8486950776346217,
+        "roc_auc_macro": 0.933205270312067,
+        "roc_auc_weighted": 0.9327332529212291,
+        "roc_auc_Other": 0.8774844019671959,
+        "roc_auc_Donor": 0.9589008923788679,
+        "roc_auc_Acceptor": 0.9632305165901371,
+        "pr_auc_Other": 0.8058224356244608,
+        "pr_auc_Donor": 0.9118752906528602,
+        "pr_auc_Acceptor": 0.9166140437088901
+      },
+      "confusion_matrix": [
+        [
+          6070,
+          1327,
+          1565
+        ],
+        [
+          1132,
+          7466,
+          224
+        ],
+        [
+          849,
+          110,
+          7707
+        ]
+      ],
+      "running_time_seconds": 0.007740000000922009
+    },
+    "gtex_test": {
+      "num_samples": 41262,
+      "metrics": {
+        "accuracy": 0.8161746885754447,
+        "balanced_accuracy": 0.8161965612578305,
+        "mcc": 0.7263686395736589,
+        "f1_macro": 0.8126633805944262,
+        "f1_weighted": 0.8126590434666238,
+        "f1_Other": 0.7175063712997451,
+        "f1_Donor": 0.8561746450738389,
+        "f1_Acceptor": 0.8643091254096946,
+        "roc_auc_macro": 0.9391861140312646,
+        "roc_auc_weighted": 0.9391862945427795,
+        "roc_auc_Other": 0.8846145493989201,
+        "roc_auc_Donor": 0.9666411751230042,
+        "roc_auc_Acceptor": 0.9663026175718695,
+        "pr_auc_Other": 0.8228853852292575,
+        "pr_auc_Donor": 0.9200811923861114,
+        "pr_auc_Acceptor": 0.9204213797528766
+      },
+      "confusion_matrix": [
+        [
+          9150,
+          2104,
+          2500
+        ],
+        [
+          1548,
+          12001,
+          227
+        ],
+        [
+          1053,
+          153,
+          12526
+        ]
+      ],
+      "running_time_seconds": 0.012409299990395084
+    }
+  },
+  "hyenadna-medium-160k-seqlen-hf_w600": {
+    "window_size": 600,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-medium-160k-seqlen-hf",
+    "best_fold_number": 5,
+    "checkpoint": "best_fold5.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-medium-160k-seqlen-hf_w600\\checkpoints\\best_fold5.pt",
+    "model_inference_seconds_total": 0.05061409999325406,
+    "gencode_test": {
+      "num_samples": 26401,
+      "metrics": {
+        "accuracy": 0.5611529866292944,
+        "balanced_accuracy": 0.5568711097626943,
+        "mcc": 0.41330569750436263,
+        "f1_macro": 0.4653338487830298,
+        "f1_weighted": 0.46843344942219334,
+        "f1_Other": 0.5668775417984636,
+        "f1_Donor": 0.8291240045506257,
+        "f1_Acceptor": 0.0,
+        "roc_auc_macro": 0.8461145169544197,
+        "roc_auc_weighted": 0.8450664656026542,
+        "roc_auc_Other": 0.6724778544431077,
+        "roc_auc_Donor": 0.9436699778667973,
+        "roc_auc_Acceptor": 0.9221957185533541,
+        "pr_auc_Other": 0.49854671551568885,
+        "pr_auc_Donor": 0.8775993344294428,
+        "pr_auc_Acceptor": 0.7830659235640476
+      },
+      "confusion_matrix": [
+        [
+          7527,
+          1386,
+          0
+        ],
+        [
+          1534,
+          7288,
+          0
+        ],
+        [
+          8582,
+          84,
+          0
+        ]
+      ],
+      "running_time_seconds": 0.007841899991035461
+    },
+    "gtex_test": {
+      "num_samples": 41261,
+      "metrics": {
+        "accuracy": 0.5676546860231211,
+        "balanced_accuracy": 0.5671873246911284,
+        "mcc": 0.428904818672296,
+        "f1_macro": 0.4719860800855508,
+        "f1_weighted": 0.4724488897215623,
+        "f1_Other": 0.5694126806481437,
+        "f1_Donor": 0.8465455596085087,
+        "f1_Acceptor": 0.0,
+        "roc_auc_macro": 0.8537562407791364,
+        "roc_auc_weighted": 0.8537730847751615,
+        "roc_auc_Other": 0.6848030035201056,
+        "roc_auc_Donor": 0.9555545647113609,
+        "roc_auc_Acceptor": 0.9209111541059425,
+        "pr_auc_Other": 0.5134410412620626,
+        "pr_auc_Donor": 0.8943987500537295,
+        "pr_auc_Acceptor": 0.7812774757849805
+      },
+      "confusion_matrix": [
+        [
+          11702,
+          2052,
+          0
+        ],
+        [
+          2056,
+          11720,
+          0
+        ],
+        [
+          13590,
+          141,
+          0
+        ]
+      ],
+      "running_time_seconds": 0.012359400003333576
+    }
+  },
+  "hyenadna-small-32k-seqlen-hf_w1000": {
+    "window_size": 1000,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-small-32k-seqlen-hf",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-small-32k-seqlen-hf_w1000\\checkpoints\\best_fold1.pt",
+    "model_inference_seconds_total": 0.05627660000754986,
+    "gencode_test": {
+      "num_samples": 26315,
+      "metrics": {
+        "accuracy": 0.746494394831845,
+        "balanced_accuracy": 0.7471461641565752,
+        "mcc": 0.6382020730700312,
+        "f1_macro": 0.7296014627981625,
+        "f1_weighted": 0.7291151017453805,
+        "f1_Other": 0.5760655018641714,
+        "f1_Donor": 0.8060161974546857,
+        "f1_Acceptor": 0.8067226890756303,
+        "roc_auc_macro": 0.9019010020440463,
+        "roc_auc_weighted": 0.9016948292683716,
+        "roc_auc_Other": 0.8157609585121588,
+        "roc_auc_Donor": 0.9560235047155502,
+        "roc_auc_Acceptor": 0.93391854290443,
+        "pr_auc_Other": 0.7450142147958176,
+        "pr_auc_Donor": 0.9031422007616166,
+        "pr_auc_Acceptor": 0.8110129553337571
+      },
+      "confusion_matrix": [
+        [
+          3940,
+          2840,
+          2047
+        ],
+        [
+          312,
+          8360,
+          150
+        ],
+        [
+          600,
+          722,
+          7344
+        ]
+      ],
+      "running_time_seconds": 0.013286699992022477
+    },
+    "gtex_test": {
+      "num_samples": 41258,
+      "metrics": {
+        "accuracy": 0.7578893790295216,
+        "balanced_accuracy": 0.757835459918736,
+        "mcc": 0.658843097490596,
+        "f1_macro": 0.7385356025135262,
+        "f1_weighted": 0.7385293721001556,
+        "f1_Other": 0.5778525102089839,
+        "f1_Donor": 0.8149501964726309,
+        "f1_Acceptor": 0.8228041008589637,
+        "roc_auc_macro": 0.9102300559673105,
+        "roc_auc_weighted": 0.9102439796743261,
+        "roc_auc_Other": 0.82693566301338,
+        "roc_auc_Donor": 0.9655686191226083,
+        "roc_auc_Acceptor": 0.9381858857659435,
+        "pr_auc_Other": 0.7659345357723896,
+        "pr_auc_Donor": 0.922271138459733,
+        "pr_auc_Acceptor": 0.8201715111565367
+      },
+      "confusion_matrix": [
+        [
+          6014,
+          4566,
+          3173
+        ],
+        [
+          307,
+          13377,
+          91
+        ],
+        [
+          741,
+          1111,
+          11878
+        ]
+      ],
+      "running_time_seconds": 0.01205130000016652
+    }
+  },
+  "hyenadna-small-32k-seqlen-hf_w10000": {
+    "window_size": 10000,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-small-32k-seqlen-hf",
+    "best_fold_number": 5,
+    "checkpoint": "best_fold5.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-small-32k-seqlen-hf_w10000\\checkpoints\\best_fold5.pt",
+    "model_inference_seconds_total": 0.0553084000130184,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.7141556668183887,
+        "balanced_accuracy": 0.7152590660440161,
+        "mcc": 0.5800149589003204,
+        "f1_macro": 0.7131931555870542,
+        "f1_weighted": 0.7123559798378316,
+        "f1_Other": 0.628893718306944,
+        "f1_Donor": 0.690448476549127,
+        "f1_Acceptor": 0.8202372719050912,
+        "roc_auc_macro": 0.861555490341282,
+        "roc_auc_weighted": 0.8609331923619997,
+        "roc_auc_Other": 0.7622697228865385,
+        "roc_auc_Donor": 0.8966303607557746,
+        "roc_auc_Acceptor": 0.925766387381533,
+        "pr_auc_Other": 0.6373859043536609,
+        "pr_auc_Donor": 0.8227101681926782,
+        "pr_auc_Acceptor": 0.7878287962991237
+      },
+      "confusion_matrix": [
+        [
+          6077,
+          745,
+          2061
+        ],
+        [
+          3412,
+          5042,
+          364
+        ],
+        [
+          954,
+          0,
+          7709
+        ]
+      ],
+      "running_time_seconds": 0.011608399989199825
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.731711474771089,
+        "balanced_accuracy": 0.731891288027069,
+        "mcc": 0.605204697410077,
+        "f1_macro": 0.7300677622281309,
+        "f1_weighted": 0.7299954711691291,
+        "f1_Other": 0.6388444111334446,
+        "f1_Donor": 0.7138344367995153,
+        "f1_Acceptor": 0.8375244387514326,
+        "roc_auc_macro": 0.8704335671565065,
+        "roc_auc_weighted": 0.870420172994366,
+        "roc_auc_Other": 0.7720884050127224,
+        "roc_auc_Donor": 0.9081474425169866,
+        "roc_auc_Acceptor": 0.931064853939811,
+        "pr_auc_Other": 0.6477696490868489,
+        "pr_auc_Donor": 0.8337597003817259,
+        "pr_auc_Acceptor": 0.8025284152768146
+      },
+      "confusion_matrix": [
+        [
+          9376,
+          1149,
+          3163
+        ],
+        [
+          5048,
+          8248,
+          416
+        ],
+        [
+          1241,
+          0,
+          12423
+        ]
+      ],
+      "running_time_seconds": 0.012957800005096942
+    }
+  },
+  "hyenadna-small-32k-seqlen-hf_w2000": {
+    "window_size": 2000,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-small-32k-seqlen-hf",
+    "best_fold_number": 3,
+    "checkpoint": "best_fold3.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-small-32k-seqlen-hf_w2000\\checkpoints\\best_fold3.pt",
+    "model_inference_seconds_total": 0.05163100000936538,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.7842891822181763,
+        "balanced_accuracy": 0.7855533806198537,
+        "mcc": 0.6829136249293786,
+        "f1_macro": 0.777978506075265,
+        "f1_weighted": 0.7774112363521531,
+        "f1_Other": 0.664311408016444,
+        "f1_Donor": 0.842825361512792,
+        "f1_Acceptor": 0.8267987486965589,
+        "roc_auc_macro": 0.9093917626714708,
+        "roc_auc_weighted": 0.909037825760733,
+        "roc_auc_Other": 0.8340166631630799,
+        "roc_auc_Donor": 0.9561745315563224,
+        "roc_auc_Acceptor": 0.9379840932950105,
+        "pr_auc_Other": 0.762961109124874,
+        "pr_auc_Donor": 0.9081459130551406,
+        "pr_auc_Acceptor": 0.8226568823309427
+      },
+      "confusion_matrix": [
+        [
+          5171,
+          1486,
+          2226
+        ],
+        [
+          879,
+          7577,
+          362
+        ],
+        [
+          635,
+          99,
+          7929
+        ]
+      ],
+      "running_time_seconds": 0.0077701999980490655
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.7972189752581337,
+        "balanced_accuracy": 0.7972521339513307,
+        "mcc": 0.7035231324285806,
+        "f1_macro": 0.7889659357297677,
+        "f1_weighted": 0.7889709839679355,
+        "f1_Other": 0.6698963114057453,
+        "f1_Donor": 0.8528195156443344,
+        "f1_Acceptor": 0.8441819801392234,
+        "roc_auc_macro": 0.9178871369486159,
+        "roc_auc_weighted": 0.9178992649851548,
+        "roc_auc_Other": 0.845345948201567,
+        "roc_auc_Donor": 0.9645332665811003,
+        "roc_auc_Acceptor": 0.9437821960631806,
+        "pr_auc_Other": 0.7800805853504627,
+        "pr_auc_Donor": 0.918268385735227,
+        "pr_auc_Acceptor": 0.8399401503444244
+      },
+      "confusion_matrix": [
+        [
+          7882,
+          2368,
+          3438
+        ],
+        [
+          1236,
+          12061,
+          415
+        ],
+        [
+          726,
+          144,
+          12794
+        ]
+      ],
+      "running_time_seconds": 0.011691799998516217
+    }
+  },
+  "hyenadna-small-32k-seqlen-hf_w300": {
+    "window_size": 300,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-small-32k-seqlen-hf",
+    "best_fold_number": 3,
+    "checkpoint": "best_fold3.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-small-32k-seqlen-hf_w300\\checkpoints\\best_fold3.pt",
+    "model_inference_seconds_total": 0.05688359998748638,
+    "gencode_test": {
+      "num_samples": 26450,
+      "metrics": {
+        "accuracy": 0.7795841209829868,
+        "balanced_accuracy": 0.7814202942091638,
+        "mcc": 0.6757047792897288,
+        "f1_macro": 0.7740711737240421,
+        "f1_weighted": 0.7731852699922388,
+        "f1_Other": 0.6612384018178376,
+        "f1_Donor": 0.8379580120448021,
+        "f1_Acceptor": 0.8230171073094867,
+        "roc_auc_macro": 0.9066726499572512,
+        "roc_auc_weighted": 0.9060825244129261,
+        "roc_auc_Other": 0.8283934596628685,
+        "roc_auc_Donor": 0.955145853032497,
+        "roc_auc_Acceptor": 0.9364786371763881,
+        "pr_auc_Other": 0.7542954443086916,
+        "pr_auc_Donor": 0.9039083149904603,
+        "pr_auc_Acceptor": 0.816366603177542
+      },
+      "confusion_matrix": [
+        [
+          5238,
+          1402,
+          2322
+        ],
+        [
+          1014,
+          7444,
+          364
+        ],
+        [
+          629,
+          99,
+          7938
+        ]
+      ],
+      "running_time_seconds": 0.008400800012168474
+    },
+    "gtex_test": {
+      "num_samples": 41262,
+      "metrics": {
+        "accuracy": 0.7950656778634094,
+        "balanced_accuracy": 0.7951050483219185,
+        "mcc": 0.6994987099508335,
+        "f1_macro": 0.7876995401042738,
+        "f1_weighted": 0.7877037775199645,
+        "f1_Other": 0.6708924103419516,
+        "f1_Donor": 0.8500768378542582,
+        "f1_Acceptor": 0.8421293721166115,
+        "roc_auc_macro": 0.9157441814822208,
+        "roc_auc_weighted": 0.9157553640853247,
+        "roc_auc_Other": 0.840696165134263,
+        "roc_auc_Donor": 0.9637549298669461,
+        "roc_auc_Acceptor": 0.9427814494454532,
+        "pr_auc_Other": 0.773705940120959,
+        "pr_auc_Donor": 0.9153959486776051,
+        "pr_auc_Acceptor": 0.8355492162782527
+      },
+      "confusion_matrix": [
+        [
+          8044,
+          2166,
+          3544
+        ],
+        [
+          1465,
+          11893,
+          418
+        ],
+        [
+          717,
+          146,
+          12869
+        ]
+      ],
+      "running_time_seconds": 0.011788300005719066
+    }
+  },
+  "hyenadna-small-32k-seqlen-hf_w600": {
+    "window_size": 600,
+    "model_name": "HyenaDNA",
+    "model_id": "hyenadna-small-32k-seqlen-hf",
+    "best_fold_number": 5,
+    "checkpoint": "best_fold5.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\HyenaDNA_LongSafari\\hyenadna-small-32k-seqlen-hf_w600\\checkpoints\\best_fold5.pt",
+    "model_inference_seconds_total": 0.05474949997733347,
+    "gencode_test": {
+      "num_samples": 26401,
+      "metrics": {
+        "accuracy": 0.7560319684860421,
+        "balanced_accuracy": 0.756960960394693,
+        "mcc": 0.6416875263019368,
+        "f1_macro": 0.7495182011005669,
+        "f1_weighted": 0.7488934785400457,
+        "f1_Other": 0.6468266804683962,
+        "f1_Donor": 0.806386824663587,
+        "f1_Acceptor": 0.7953410981697171,
+        "roc_auc_macro": 0.899975168033897,
+        "roc_auc_weighted": 0.8994619855198597,
+        "roc_auc_Other": 0.8102485322691888,
+        "roc_auc_Donor": 0.9551927800902256,
+        "roc_auc_Acceptor": 0.9344841917422765,
+        "pr_auc_Other": 0.7335491891214905,
+        "pr_auc_Donor": 0.9031891703147878,
+        "pr_auc_Acceptor": 0.8075758877299059
+      },
+      "confusion_matrix": [
+        [
+          4999,
+          2180,
+          1734
+        ],
+        [
+          694,
+          8030,
+          98
+        ],
+        [
+          851,
+          884,
+          6931
+        ]
+      ],
+      "running_time_seconds": 0.007859899997129105
+    },
+    "gtex_test": {
+      "num_samples": 41261,
+      "metrics": {
+        "accuracy": 0.7723273793655026,
+        "balanced_accuracy": 0.7722711791726988,
+        "mcc": 0.6665837578027457,
+        "f1_macro": 0.7648764412172327,
+        "f1_weighted": 0.7648805272602062,
+        "f1_Other": 0.66092099704267,
+        "f1_Donor": 0.8217557619981356,
+        "f1_Acceptor": 0.8119525646108928,
+        "roc_auc_macro": 0.9084704073541975,
+        "roc_auc_weighted": 0.9084850816513638,
+        "roc_auc_Other": 0.8225736414000643,
+        "roc_auc_Donor": 0.9658282249614772,
+        "roc_auc_Acceptor": 0.9370093557010509,
+        "pr_auc_Other": 0.7612295090675967,
+        "pr_auc_Donor": 0.9202313927498179,
+        "pr_auc_Acceptor": 0.8166275569871733
+      },
+      "confusion_matrix": [
+        [
+          7822,
+          3212,
+          2720
+        ],
+        [
+          965,
+          12782,
+          29
+        ],
+        [
+          1129,
+          1339,
+          11263
+        ]
+      ],
+      "running_time_seconds": 0.012827099999412894
+    }
+  },
+  "nucleotide-transformer-500m-human-ref_w1000": {
+    "window_size": 1000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-500m-human-ref",
+    "best_fold_number": 2,
+    "checkpoint": "best_fold2.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-500m-human-ref_w1000\\checkpoints\\best_fold2.pt",
+    "model_inference_seconds_total": 0.1034627999906661,
+    "gencode_test": {
+      "num_samples": 26315,
+      "metrics": {
+        "accuracy": 0.8863765912977389,
+        "balanced_accuracy": 0.8865839315188313,
+        "mcc": 0.8296365464863884,
+        "f1_macro": 0.8862353792611204,
+        "f1_weighted": 0.8860686777862091,
+        "f1_Other": 0.8389281000745968,
+        "f1_Donor": 0.9069387294966462,
+        "f1_Acceptor": 0.9128393082121178,
+        "roc_auc_macro": 0.974617545316808,
+        "roc_auc_weighted": 0.974546080178754,
+        "roc_auc_Other": 0.9548997381402046,
+        "roc_auc_Donor": 0.982912172544634,
+        "roc_auc_Acceptor": 0.9860407252655856,
+        "pr_auc_Other": 0.9180600943808751,
+        "pr_auc_Donor": 0.9686066793826109,
+        "pr_auc_Acceptor": 0.9724852542127038
+      },
+      "confusion_matrix": [
+        [
+          7310,
+          781,
+          736
+        ],
+        [
+          687,
+          8045,
+          90
+        ],
+        [
+          603,
+          93,
+          7970
+        ]
+      ],
+      "running_time_seconds": 0.016763499996159226
+    },
+    "gtex_test": {
+      "num_samples": 41258,
+      "metrics": {
+        "accuracy": 0.8778176353676863,
+        "balanced_accuracy": 0.8778131163460404,
+        "mcc": 0.8168401065079534,
+        "f1_macro": 0.8782304097281383,
+        "f1_weighted": 0.8782304896346751,
+        "f1_Other": 0.8263794460745724,
+        "f1_Donor": 0.9048052752377136,
+        "f1_Acceptor": 0.9035065078721286,
+        "roc_auc_macro": 0.9698681145398571,
+        "roc_auc_weighted": 0.9698672932421684,
+        "roc_auc_Other": 0.9449517193472342,
+        "roc_auc_Donor": 0.9818501587485232,
+        "roc_auc_Acceptor": 0.9828024655238139,
+        "pr_auc_Other": 0.8941088985245818,
+        "pr_auc_Donor": 0.9656139050788035,
+        "pr_auc_Acceptor": 0.9665731459441231
+      },
+      "confusion_matrix": [
+        [
+          11547,
+          1157,
+          1049
+        ],
+        [
+          1267,
+          12418,
+          90
+        ],
+        [
+          1379,
+          99,
+          12252
+        ]
+      ],
+      "running_time_seconds": 0.025889700002153404
+    }
+  },
+  "nucleotide-transformer-500m-human-ref_w2000": {
+    "window_size": 2000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-500m-human-ref",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-500m-human-ref_w2000\\checkpoints\\best_fold1.pt",
+    "model_inference_seconds_total": 0.10051630000816658,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.918790775299651,
+        "balanced_accuracy": 0.9189472622094593,
+        "mcc": 0.8781841357476844,
+        "f1_macro": 0.9189849464737883,
+        "f1_weighted": 0.9188314850235285,
+        "f1_Other": 0.8844317096466093,
+        "f1_Donor": 0.9419259427791365,
+        "f1_Acceptor": 0.9305971869956191,
+        "roc_auc_macro": 0.9854897115137914,
+        "roc_auc_weighted": 0.9854282352155022,
+        "roc_auc_Other": 0.9733551114046898,
+        "roc_auc_Donor": 0.9922564914873534,
+        "roc_auc_Acceptor": 0.990857531649331,
+        "pr_auc_Other": 0.9499398051619605,
+        "pr_auc_Donor": 0.9853977525885954,
+        "pr_auc_Acceptor": 0.9814007279305255
+      },
+      "confusion_matrix": [
+        [
+          7871,
+          441,
+          571
+        ],
+        [
+          496,
+          8280,
+          42
+        ],
+        [
+          549,
+          42,
+          8072
+        ]
+      ],
+      "running_time_seconds": 0.015732100000604987
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.9119423339177869,
+        "balanced_accuracy": 0.911927532730093,
+        "mcc": 0.8680460305308202,
+        "f1_macro": 0.9122340493964769,
+        "f1_weighted": 0.9122439842941243,
+        "f1_Other": 0.8731048358123159,
+        "f1_Donor": 0.9402979611259563,
+        "f1_Acceptor": 0.9232993512511585,
+        "roc_auc_macro": 0.9828409305875357,
+        "roc_auc_weighted": 0.9828424791125591,
+        "roc_auc_Other": 0.9675163036832186,
+        "roc_auc_Donor": 0.9918280071972365,
+        "roc_auc_Acceptor": 0.9891784808821518,
+        "pr_auc_Other": 0.9369066813115299,
+        "pr_auc_Donor": 0.984453228978304,
+        "pr_auc_Acceptor": 0.9777199894010353
+      },
+      "confusion_matrix": [
+        [
+          12151,
+          700,
+          837
+        ],
+        [
+          847,
+          12844,
+          21
+        ],
+        [
+          1148,
+          63,
+          12453
+        ]
+      ],
+      "running_time_seconds": 0.0255302000005031
+    }
+  },
+  "nucleotide-transformer-500m-human-ref_w300": {
+    "window_size": 300,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-500m-human-ref",
+    "best_fold_number": 3,
+    "checkpoint": "best_fold3.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-500m-human-ref_w300\\checkpoints\\best_fold3.pt",
+    "model_inference_seconds_total": 0.10727100001531653,
+    "gencode_test": {
+      "num_samples": 26450,
+      "metrics": {
+        "accuracy": 0.9057844990548204,
+        "balanced_accuracy": 0.9062051299262434,
+        "mcc": 0.8587936946239475,
+        "f1_macro": 0.9058589558620108,
+        "f1_weighted": 0.9055757896017905,
+        "f1_Other": 0.8645197740112994,
+        "f1_Donor": 0.9362862010221465,
+        "f1_Acceptor": 0.9167708925525867,
+        "roc_auc_macro": 0.9811256540841248,
+        "roc_auc_weighted": 0.981009703344901,
+        "roc_auc_Other": 0.9659888022427927,
+        "roc_auc_Donor": 0.9901872636518324,
+        "roc_auc_Acceptor": 0.9872008963577495,
+        "pr_auc_Other": 0.9365933703257586,
+        "pr_auc_Donor": 0.9827828003038378,
+        "pr_auc_Acceptor": 0.9725286321062858
+      },
+      "confusion_matrix": [
+        [
+          7651,
+          499,
+          812
+        ],
+        [
+          529,
+          8244,
+          49
+        ],
+        [
+          558,
+          45,
+          8063
+        ]
+      ],
+      "running_time_seconds": 0.01642339999671094
+    },
+    "gtex_test": {
+      "num_samples": 41262,
+      "metrics": {
+        "accuracy": 0.9076389898696137,
+        "balanced_accuracy": 0.9076250766519186,
+        "mcc": 0.8614990188124189,
+        "f1_macro": 0.9074211312910704,
+        "f1_weighted": 0.9074359355952755,
+        "f1_Other": 0.8634144550893808,
+        "f1_Donor": 0.9433075421216285,
+        "f1_Acceptor": 0.9155413966622018,
+        "roc_auc_macro": 0.9799507485335658,
+        "roc_auc_weighted": 0.9799541875980479,
+        "roc_auc_Other": 0.962235489324464,
+        "roc_auc_Donor": 0.9920334390169532,
+        "roc_auc_Acceptor": 0.9855833172592798,
+        "pr_auc_Other": 0.926495932328519,
+        "pr_auc_Donor": 0.9844918010118141,
+        "pr_auc_Acceptor": 0.9697261047713893
+      },
+      "confusion_matrix": [
+        [
+          11761,
+          776,
+          1217
+        ],
+        [
+          702,
+          13045,
+          29
+        ],
+        [
+          1026,
+          61,
+          12645
+        ]
+      ],
+      "running_time_seconds": 0.02648669999325648
+    }
+  },
+  "nucleotide-transformer-500m-human-ref_w600": {
+    "window_size": 600,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-500m-human-ref",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-500m-human-ref_w600\\checkpoints\\best_fold1.pt",
+    "model_inference_seconds_total": 0.09823819999292027,
+    "gencode_test": {
+      "num_samples": 26401,
+      "metrics": {
+        "accuracy": 0.9157986439907579,
+        "balanced_accuracy": 0.9160323459368525,
+        "mcc": 0.87372127591997,
+        "f1_macro": 0.9159152911891285,
+        "f1_weighted": 0.915736640527338,
+        "f1_Other": 0.879806066072838,
+        "f1_Donor": 0.9428538968416269,
+        "f1_Acceptor": 0.925085910652921,
+        "roc_auc_macro": 0.9843885336036466,
+        "roc_auc_weighted": 0.984312475335704,
+        "roc_auc_Other": 0.971419760362163,
+        "roc_auc_Donor": 0.9920505378260104,
+        "roc_auc_Acceptor": 0.9896953026227668,
+        "pr_auc_Other": 0.9479052188578663,
+        "pr_auc_Donor": 0.9854008171804866,
+        "pr_auc_Acceptor": 0.9780942375810514
+      },
+      "confusion_matrix": [
+        [
+          7803,
+          439,
+          671
+        ],
+        [
+          476,
+          8299,
+          47
+        ],
+        [
+          546,
+          44,
+          8076
+        ]
+      ],
+      "running_time_seconds": 0.014140200000838377
+    },
+    "gtex_test": {
+      "num_samples": 41261,
+      "metrics": {
+        "accuracy": 0.9146651801943724,
+        "balanced_accuracy": 0.9146535082501656,
+        "mcc": 0.8719990951593727,
+        "f1_macro": 0.9146809445023042,
+        "f1_weighted": 0.9146917730923605,
+        "f1_Other": 0.8752585925307589,
+        "f1_Donor": 0.9447590011614402,
+        "f1_Acceptor": 0.9240252398147135,
+        "roc_auc_macro": 0.9833309467934838,
+        "roc_auc_weighted": 0.9833329053173686,
+        "roc_auc_Other": 0.9685148183809429,
+        "roc_auc_Donor": 0.9926994269601601,
+        "roc_auc_Acceptor": 0.9887785950393482,
+        "pr_auc_Other": 0.9379821587832791,
+        "pr_auc_Donor": 0.9863789984898134,
+        "pr_auc_Acceptor": 0.9765908344191713
+      },
+      "confusion_matrix": [
+        [
+          12058,
+          701,
+          995
+        ],
+        [
+          737,
+          13015,
+          24
+        ],
+        [
+          1004,
+          60,
+          12667
+        ]
+      ],
+      "running_time_seconds": 0.02355469999019988
+    }
+  },
+  "nucleotide-transformer-v2-100m-multi-species_w1000": {
+    "window_size": 1000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-100m-multi-species",
+    "best_fold_number": 2,
+    "checkpoint": "best_fold2.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-100m-multi-species_w1000\\checkpoints\\best_fold2.pt",
+    "model_inference_seconds_total": 0.06651360001706053,
+    "gencode_test": {
+      "num_samples": 26315,
+      "metrics": {
+        "accuracy": 0.35386661599847996,
+        "balanced_accuracy": 0.3563683451875592,
+        "mcc": 0.043922602921854445,
+        "f1_macro": 0.2980372004406895,
+        "f1_weighted": 0.2969800074852318,
+        "f1_Other": 0.25397062113190666,
+        "f1_Donor": 0.16518262765764127,
+        "f1_Acceptor": 0.47495835253252044,
+        "roc_auc_macro": 0.5418041254782207,
+        "roc_auc_weighted": 0.5417889256720438,
+        "roc_auc_Other": 0.5405137411352572,
+        "roc_auc_Donor": 0.5405718753479305,
+        "roc_auc_Acceptor": 0.5443267599514742,
+        "pr_auc_Other": 0.3672482817015151,
+        "pr_auc_Donor": 0.37579114935847896,
+        "pr_auc_Acceptor": 0.3668469334499641
+      },
+      "confusion_matrix": [
+        [
+          1703,
+          686,
+          6438
+        ],
+        [
+          1504,
+          909,
+          6409
+        ],
+        [
+          1377,
+          589,
+          6700
+        ]
+      ],
+      "running_time_seconds": 0.012057300002197735
+    },
+    "gtex_test": {
+      "num_samples": 41258,
+      "metrics": {
+        "accuracy": 0.36133598332444616,
+        "balanced_accuracy": 0.3617084638127081,
+        "mcc": 0.05458439646878591,
+        "f1_macro": 0.30339006100014004,
+        "f1_weighted": 0.3032189402233417,
+        "f1_Other": 0.25421192372676804,
+        "f1_Donor": 0.17163441984777178,
+        "f1_Acceptor": 0.48432383942588025,
+        "roc_auc_macro": 0.5469056659618804,
+        "roc_auc_weighted": 0.5469004662792633,
+        "roc_auc_Other": 0.5451082345861694,
+        "roc_auc_Donor": 0.5430570529889687,
+        "roc_auc_Acceptor": 0.5525517103105032,
+        "pr_auc_Other": 0.37056345915429534,
+        "pr_auc_Donor": 0.37887769773694135,
+        "pr_auc_Acceptor": 0.3787446743611644
+      },
+      "confusion_matrix": [
+        [
+          2633,
+          1035,
+          10085
+        ],
+        [
+          2321,
+          1477,
+          9977
+        ],
+        [
+          2008,
+          924,
+          10798
+        ]
+      ],
+      "running_time_seconds": 0.020027699996717274
+    }
+  },
+  "nucleotide-transformer-v2-100m-multi-species_w10000": {
+    "window_size": 10000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-100m-multi-species",
+    "best_fold_number": 2,
+    "checkpoint": "best_fold2.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-100m-multi-species_w10000\\checkpoints\\best_fold2.pt",
+    "model_inference_seconds_total": 0.05847130002803169,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.37558792292520105,
+        "balanced_accuracy": 0.3753988021479593,
+        "mcc": 0.06384849196892019,
+        "f1_macro": 0.3720461839849963,
+        "f1_weighted": 0.37210549075277066,
+        "f1_Other": 0.4078809891039355,
+        "f1_Donor": 0.33127138720715976,
+        "f1_Acceptor": 0.37698617564389375,
+        "roc_auc_macro": 0.5492454791082723,
+        "roc_auc_weighted": 0.5491764900742816,
+        "roc_auc_Other": 0.5367789449509786,
+        "roc_auc_Donor": 0.5552055476403573,
+        "roc_auc_Acceptor": 0.5557519447334809,
+        "pr_auc_Other": 0.3686647384837386,
+        "pr_auc_Donor": 0.38060567653382144,
+        "pr_auc_Acceptor": 0.3689283329537396
+      },
+      "confusion_matrix": [
+        [
+          4099,
+          2030,
+          2754
+        ],
+        [
+          3571,
+          2517,
+          2730
+        ],
+        [
+          3546,
+          1831,
+          3286
+        ]
+      ],
+      "running_time_seconds": 0.00894210000114981
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.37073835963374246,
+        "balanced_accuracy": 0.3707996163520437,
+        "mcc": 0.057030251155594715,
+        "f1_macro": 0.3667882557829653,
+        "f1_weighted": 0.3667560710464135,
+        "f1_Other": 0.40198922503108164,
+        "f1_Donor": 0.32165372903889866,
+        "f1_Acceptor": 0.3767218132789155,
+        "roc_auc_macro": 0.5456347353053129,
+        "roc_auc_weighted": 0.5456357857366958,
+        "roc_auc_Other": 0.5327895651730594,
+        "roc_auc_Donor": 0.5529559644193527,
+        "roc_auc_Acceptor": 0.5511586763235269,
+        "pr_auc_Other": 0.3618251707568936,
+        "pr_auc_Donor": 0.38050614795373294,
+        "pr_auc_Acceptor": 0.3679599098307008
+      },
+      "confusion_matrix": [
+        [
+          6305,
+          3037,
+          4346
+        ],
+        [
+          5699,
+          3750,
+          4263
+        ],
+        [
+          5677,
+          2818,
+          5169
+        ]
+      ],
+      "running_time_seconds": 0.013717000008909963
+    }
+  },
+  "nucleotide-transformer-v2-100m-multi-species_w2000": {
+    "window_size": 2000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-100m-multi-species",
+    "best_fold_number": 3,
+    "checkpoint": "best_fold3.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-100m-multi-species_w2000\\checkpoints\\best_fold3.pt",
+    "model_inference_seconds_total": 0.05885759998636786,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.3627674101046882,
+        "balanced_accuracy": 0.3596458295365157,
+        "mcc": 0.08714281098028019,
+        "f1_macro": 0.24547287268431184,
+        "f1_weighted": 0.24676948402628449,
+        "f1_Other": 0.5066730648112048,
+        "f1_Donor": 0.09527815753496688,
+        "f1_Acceptor": 0.13446739570676386,
+        "roc_auc_macro": 0.6167409212519422,
+        "roc_auc_weighted": 0.616700346710511,
+        "roc_auc_Other": 0.5762849464911399,
+        "roc_auc_Donor": 0.6672609679428136,
+        "roc_auc_Acceptor": 0.6066768493218729,
+        "pr_auc_Other": 0.40180727822866685,
+        "pr_auc_Donor": 0.4869536478955716,
+        "pr_auc_Acceptor": 0.42822546487517354
+      },
+      "confusion_matrix": [
+        [
+          8447,
+          122,
+          314
+        ],
+        [
+          8130,
+          453,
+          235
+        ],
+        [
+          7883,
+          116,
+          664
+        ]
+      ],
+      "running_time_seconds": 0.00957409999682568
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.3592928112215079,
+        "balanced_accuracy": 0.359303065419259,
+        "mcc": 0.08411224816325169,
+        "f1_macro": 0.24574306674934188,
+        "f1_weighted": 0.24572778428988729,
+        "f1_Other": 0.5017817026880471,
+        "f1_Donor": 0.1046496047166019,
+        "f1_Acceptor": 0.1307978928433766,
+        "roc_auc_macro": 0.6147206995041596,
+        "roc_auc_weighted": 0.6147557548935285,
+        "roc_auc_Other": 0.573785506950676,
+        "roc_auc_Donor": 0.665178181385988,
+        "roc_auc_Acceptor": 0.6051984101758149,
+        "pr_auc_Other": 0.3889880766156103,
+        "pr_auc_Donor": 0.4880392108937315,
+        "pr_auc_Acceptor": 0.43240415465800897
+      },
+      "confusion_matrix": [
+        [
+          12955,
+          238,
+          495
+        ],
+        [
+          12542,
+          781,
+          389
+        ],
+        [
+          12451,
+          195,
+          1018
+        ]
+      ],
+      "running_time_seconds": 0.015007599999080412
+    }
+  },
+  "nucleotide-transformer-v2-100m-multi-species_w300": {
+    "window_size": 300,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-100m-multi-species",
+    "best_fold_number": 2,
+    "checkpoint": "best_fold2.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-100m-multi-species_w300\\checkpoints\\best_fold2.pt",
+    "model_inference_seconds_total": 0.05780749999394175,
+    "gencode_test": {
+      "num_samples": 26450,
+      "metrics": {
+        "accuracy": 0.41266540642722116,
+        "balanced_accuracy": 0.41543060879326915,
+        "mcc": 0.14991169162809623,
+        "f1_macro": 0.3552948713219064,
+        "f1_weighted": 0.3543948929683922,
+        "f1_Other": 0.37395268605224247,
+        "f1_Donor": 0.16730038022813687,
+        "f1_Acceptor": 0.5246315476853398,
+        "roc_auc_macro": 0.6607182814940337,
+        "roc_auc_weighted": 0.6602826751202296,
+        "roc_auc_Other": 0.5873828450325895,
+        "roc_auc_Donor": 0.7260099520419407,
+        "roc_auc_Acceptor": 0.6687620474075707,
+        "pr_auc_Other": 0.4272900493837788,
+        "pr_auc_Donor": 0.5922887172574731,
+        "pr_auc_Acceptor": 0.48975903181026476
+      },
+      "confusion_matrix": [
+        [
+          3035,
+          76,
+          5851
+        ],
+        [
+          2654,
+          814,
+          5354
+        ],
+        [
+          1581,
+          19,
+          7066
+        ]
+      ],
+      "running_time_seconds": 0.008448599997791462
+    },
+    "gtex_test": {
+      "num_samples": 41262,
+      "metrics": {
+        "accuracy": 0.4155881925258107,
+        "balanced_accuracy": 0.4159684809496613,
+        "mcc": 0.15137461805399133,
+        "f1_macro": 0.35893610287337124,
+        "f1_weighted": 0.3587493916238567,
+        "f1_Other": 0.3719404895216765,
+        "f1_Donor": 0.17734119187950229,
+        "f1_Acceptor": 0.527526627218935,
+        "roc_auc_macro": 0.6623817022045259,
+        "roc_auc_weighted": 0.6624155803738921,
+        "roc_auc_Other": 0.5885790592328962,
+        "roc_auc_Donor": 0.7310530469719438,
+        "roc_auc_Acceptor": 0.6675130004087376,
+        "pr_auc_Other": 0.4209019675943393,
+        "pr_auc_Donor": 0.6021870659403823,
+        "pr_auc_Acceptor": 0.4946466974591508
+      },
+      "confusion_matrix": [
+        [
+          4650,
+          94,
+          9010
+        ],
+        [
+          4058,
+          1354,
+          8364
+        ],
+        [
+          2542,
+          46,
+          11144
+        ]
+      ],
+      "running_time_seconds": 0.013453699997626245
+    }
+  },
+  "nucleotide-transformer-v2-100m-multi-species_w600": {
+    "window_size": 600,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-100m-multi-species",
+    "best_fold_number": 4,
+    "checkpoint": "best_fold4.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-100m-multi-species_w600\\checkpoints\\best_fold4.pt",
+    "model_inference_seconds_total": 0.06253059998562094,
+    "gencode_test": {
+      "num_samples": 26401,
+      "metrics": {
+        "accuracy": 0.4345289951138214,
+        "balanced_accuracy": 0.4338891045713614,
+        "mcc": 0.17147906423486484,
+        "f1_macro": 0.40368223515071094,
+        "f1_weighted": 0.4036271165901127,
+        "f1_Other": 0.4855871386761817,
+        "f1_Donor": 0.26467136150234744,
+        "f1_Acceptor": 0.46078820527360365,
+        "roc_auc_macro": 0.695385973045323,
+        "roc_auc_weighted": 0.695224425113082,
+        "roc_auc_Other": 0.6030832323264361,
+        "roc_auc_Donor": 0.8141920627790968,
+        "roc_auc_Acceptor": 0.668882624030436,
+        "pr_auc_Other": 0.44626747628204133,
+        "pr_auc_Donor": 0.7433905497024828,
+        "pr_auc_Acceptor": 0.4735364242111793
+      },
+      "confusion_matrix": [
+        [
+          6056,
+          35,
+          2822
+        ],
+        [
+          5385,
+          1353,
+          2084
+        ],
+        [
+          4589,
+          14,
+          4063
+        ]
+      ],
+      "running_time_seconds": 0.009743199989316054
+    },
+    "gtex_test": {
+      "num_samples": 41261,
+      "metrics": {
+        "accuracy": 0.43435689876638955,
+        "balanced_accuracy": 0.4345221586083933,
+        "mcc": 0.17229235721579714,
+        "f1_macro": 0.40608821142719426,
+        "f1_weighted": 0.40598733553025823,
+        "f1_Other": 0.48018865479799944,
+        "f1_Donor": 0.27572042073815894,
+        "f1_Acceptor": 0.46235555874542456,
+        "roc_auc_macro": 0.6962102419780946,
+        "roc_auc_weighted": 0.6962920654566637,
+        "roc_auc_Other": 0.5969871621346623,
+        "roc_auc_Donor": 0.8219491172146056,
+        "roc_auc_Acceptor": 0.6696944465850154,
+        "pr_auc_Other": 0.43181339258089,
+        "pr_auc_Donor": 0.7516904473931287,
+        "pr_auc_Acceptor": 0.4777214402389248
+      },
+      "confusion_matrix": [
+        [
+          9265,
+          52,
+          4437
+        ],
+        [
+          8305,
+          2215,
+          3256
+        ],
+        [
+          7265,
+          24,
+          6442
+        ]
+      ],
+      "running_time_seconds": 0.01760229999490548
+    }
+  },
+  "nucleotide-transformer-v2-250m-multi-species_w1000": {
+    "window_size": 1000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-250m-multi-species",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-250m-multi-species_w1000\\checkpoints\\best_fold1.pt",
+    "model_inference_seconds_total": 0.09306889999425039,
+    "gencode_test": {
+      "num_samples": 26315,
+      "metrics": {
+        "accuracy": 0.3854835645069352,
+        "balanced_accuracy": 0.3852323720397279,
+        "mcc": 0.0798842462133063,
+        "f1_macro": 0.379543834671797,
+        "f1_weighted": 0.37964792310260215,
+        "f1_Other": 0.4313909333833388,
+        "f1_Donor": 0.34359322033898304,
+        "f1_Acceptor": 0.36364735029306905,
+        "roc_auc_macro": 0.5675650063636882,
+        "roc_auc_weighted": 0.5675904350489781,
+        "roc_auc_Other": 0.5578756472515138,
+        "roc_auc_Donor": 0.5818543824564189,
+        "roc_auc_Acceptor": 0.5629649893831318,
+        "pr_auc_Other": 0.38555228018769583,
+        "pr_auc_Donor": 0.4101012775995788,
+        "pr_auc_Acceptor": 0.3774806726208398
+      },
+      "confusion_matrix": [
+        [
+          4601,
+          1720,
+          2506
+        ],
+        [
+          3920,
+          2534,
+          2368
+        ],
+        [
+          3983,
+          1674,
+          3009
+        ]
+      ],
+      "running_time_seconds": 0.010914600003161468
+    },
+    "gtex_test": {
+      "num_samples": 41258,
+      "metrics": {
+        "accuracy": 0.3864220272432013,
+        "balanced_accuracy": 0.3864554050762548,
+        "mcc": 0.08139161792168917,
+        "f1_macro": 0.38202449044805564,
+        "f1_weighted": 0.3820105358532793,
+        "f1_Other": 0.422591847925425,
+        "f1_Donor": 0.3484958705978005,
+        "f1_Acceptor": 0.37498575282094143,
+        "roc_auc_macro": 0.5673891058936988,
+        "roc_auc_weighted": 0.5673981018986256,
+        "roc_auc_Other": 0.5528398933514901,
+        "roc_auc_Donor": 0.5830733072211676,
+        "roc_auc_Acceptor": 0.566254117108439,
+        "pr_auc_Other": 0.3740663325182937,
+        "pr_auc_Donor": 0.4115262906205108,
+        "pr_auc_Acceptor": 0.38566778484458164
+      },
+      "confusion_matrix": [
+        [
+          6936,
+          2851,
+          3966
+        ],
+        [
+          6013,
+          4072,
+          3690
+        ],
+        [
+          6124,
+          2671,
+          4935
+        ]
+      ],
+      "running_time_seconds": 0.018067400000290945
+    }
+  },
+  "nucleotide-transformer-v2-250m-multi-species_w10000": {
+    "window_size": 10000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-250m-multi-species",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-250m-multi-species_w10000\\checkpoints\\best_fold1.pt",
+    "model_inference_seconds_total": 0.07358279997424688,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.3623881049916553,
+        "balanced_accuracy": 0.36250124208676,
+        "mcc": 0.050100683592253545,
+        "f1_macro": 0.3014011342981613,
+        "f1_weighted": 0.3011340851781083,
+        "f1_Other": 0.4459969141093777,
+        "f1_Donor": 0.05074594359141893,
+        "f1_Acceptor": 0.40746054519368724,
+        "roc_auc_macro": 0.5611317767551698,
+        "roc_auc_weighted": 0.5612151291594023,
+        "roc_auc_Other": 0.544130533243333,
+        "roc_auc_Donor": 0.5994400113215672,
+        "roc_auc_Acceptor": 0.5398247857006091,
+        "pr_auc_Other": 0.3746597228458972,
+        "pr_auc_Donor": 0.42795821230551984,
+        "pr_auc_Acceptor": 0.3575815257767727
+      },
+      "confusion_matrix": [
+        [
+          5203,
+          60,
+          3620
+        ],
+        [
+          4773,
+          233,
+          3812
+        ],
+        [
+          4473,
+          72,
+          4118
+        ]
+      ],
+      "running_time_seconds": 0.012303499999688938
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.36202026105591273,
+        "balanced_accuracy": 0.3622806393293967,
+        "mcc": 0.04962062563870438,
+        "f1_macro": 0.30258637020847745,
+        "f1_weighted": 0.3023798956784414,
+        "f1_Other": 0.4422874258139664,
+        "f1_Donor": 0.056096881959910916,
+        "f1_Acceptor": 0.4093748028515551,
+        "roc_auc_macro": 0.5620650323920069,
+        "roc_auc_weighted": 0.5620990534406999,
+        "roc_auc_Other": 0.5447116909024734,
+        "roc_auc_Donor": 0.5998467102937015,
+        "roc_auc_Acceptor": 0.5416366959798458,
+        "pr_auc_Other": 0.36982579188704773,
+        "pr_auc_Donor": 0.4288676847754008,
+        "pr_auc_Acceptor": 0.3618596265342745
+      },
+      "confusion_matrix": [
+        [
+          7974,
+          141,
+          5573
+        ],
+        [
+          7333,
+          403,
+          5976
+        ],
+        [
+          7063,
+          112,
+          6489
+        ]
+      ],
+      "running_time_seconds": 0.017324400003417395
+    }
+  },
+  "nucleotide-transformer-v2-250m-multi-species_w2000": {
+    "window_size": 2000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-250m-multi-species",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-250m-multi-species_w2000\\checkpoints\\best_fold1.pt",
+    "model_inference_seconds_total": 0.07095559996378142,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.40490820816264605,
+        "balanced_accuracy": 0.40389350259646073,
+        "mcc": 0.11243560755297345,
+        "f1_macro": 0.39422635202187467,
+        "f1_weighted": 0.3945479291032593,
+        "f1_Other": 0.45604976935122093,
+        "f1_Donor": 0.36117413499716394,
+        "f1_Acceptor": 0.3654551517172391,
+        "roc_auc_macro": 0.5914849657412024,
+        "roc_auc_weighted": 0.5913059211279843,
+        "roc_auc_Other": 0.5545356482726782,
+        "roc_auc_Donor": 0.6134754022585792,
+        "roc_auc_Acceptor": 0.6064438466923496,
+        "pr_auc_Other": 0.37805325076232954,
+        "pr_auc_Donor": 0.4495074010766045,
+        "pr_auc_Acceptor": 0.41453270299332484
+      },
+      "confusion_matrix": [
+        [
+          5388,
+          1593,
+          1902
+        ],
+        [
+          4581,
+          2547,
+          1690
+        ],
+        [
+          4777,
+          1146,
+          2740
+        ]
+      ],
+      "running_time_seconds": 0.010962200001813471
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.4053672316384181,
+        "balanced_accuracy": 0.4053822052167386,
+        "mcc": 0.11490363260476613,
+        "f1_macro": 0.3958887401246103,
+        "f1_weighted": 0.3958859018231364,
+        "f1_Other": 0.45175031401889576,
+        "f1_Donor": 0.36552978626648475,
+        "f1_Acceptor": 0.3703861200884504,
+        "roc_auc_macro": 0.5922608200593217,
+        "roc_auc_weighted": 0.5922612807459654,
+        "roc_auc_Other": 0.5521058175159119,
+        "roc_auc_Donor": 0.6127324387547213,
+        "roc_auc_Acceptor": 0.6119442039073317,
+        "pr_auc_Other": 0.3696575353739147,
+        "pr_auc_Donor": 0.44901987408186494,
+        "pr_auc_Acceptor": 0.4231508984090604
+      },
+      "confusion_matrix": [
+        [
+          8272,
+          2488,
+          2928
+        ],
+        [
+          7124,
+          4019,
+          2569
+        ],
+        [
+          7538,
+          1771,
+          4355
+        ]
+      ],
+      "running_time_seconds": 0.016259600000921637
+    }
+  },
+  "nucleotide-transformer-v2-250m-multi-species_w300": {
+    "window_size": 300,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-250m-multi-species",
+    "best_fold_number": 2,
+    "checkpoint": "best_fold2.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-250m-multi-species_w300\\checkpoints\\best_fold2.pt",
+    "model_inference_seconds_total": 0.07383539999136701,
+    "gencode_test": {
+      "num_samples": 26450,
+      "metrics": {
+        "accuracy": 0.4564461247637051,
+        "balanced_accuracy": 0.4548126388941139,
+        "mcc": 0.20258796139503388,
+        "f1_macro": 0.44288242622647483,
+        "f1_weighted": 0.4431922489115103,
+        "f1_Other": 0.4979381443298969,
+        "f1_Donor": 0.3909485637942552,
+        "f1_Acceptor": 0.43976057055527257,
+        "roc_auc_macro": 0.6822397251290808,
+        "roc_auc_weighted": 0.6818200356465411,
+        "roc_auc_Other": 0.6003610624548132,
+        "roc_auc_Donor": 0.7664403490932301,
+        "roc_auc_Acceptor": 0.6799177638391991,
+        "pr_auc_Other": 0.4277936062994706,
+        "pr_auc_Donor": 0.6320497757320424,
+        "pr_auc_Acceptor": 0.48953100063595256
+      },
+      "confusion_matrix": [
+        [
+          6279,
+          498,
+          2185
+        ],
+        [
+          5081,
+          2341,
+          1400
+        ],
+        [
+          4898,
+          315,
+          3453
+        ]
+      ],
+      "running_time_seconds": 0.011712399995303713
+    },
+    "gtex_test": {
+      "num_samples": 41262,
+      "metrics": {
+        "accuracy": 0.4621928166351607,
+        "balanced_accuracy": 0.46226651070820673,
+        "mcc": 0.21471458295308235,
+        "f1_macro": 0.45050929305223564,
+        "f1_weighted": 0.45048114796734723,
+        "f1_Other": 0.49741705003983655,
+        "f1_Donor": 0.4006617215433054,
+        "f1_Acceptor": 0.4534491075735649,
+        "roc_auc_macro": 0.6902349469445829,
+        "roc_auc_weighted": 0.6902879150591203,
+        "roc_auc_Other": 0.6045844193878565,
+        "roc_auc_Donor": 0.7827322639514168,
+        "roc_auc_Acceptor": 0.683388157494475,
+        "pr_auc_Other": 0.4189059169006132,
+        "pr_auc_Donor": 0.651444650757934,
+        "pr_auc_Acceptor": 0.508083355592716
+      },
+      "confusion_matrix": [
+        [
+          9677,
+          718,
+          3359
+        ],
+        [
+          7877,
+          3754,
+          2145
+        ],
+        [
+          7601,
+          491,
+          5640
+        ]
+      ],
+      "running_time_seconds": 0.01797390000137966
+    }
+  },
+  "nucleotide-transformer-v2-250m-multi-species_w600": {
+    "window_size": 600,
+    "model_name": "NucleotideTransformer",
+    "model_id": "nucleotide-transformer-v2-250m-multi-species",
+    "best_fold_number": 2,
+    "checkpoint": "best_fold2.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\classifiers\\NucleotideTransformer_InstaDeepAI\\nucleotide-transformer-v2-250m-multi-species_w600\\checkpoints\\best_fold2.pt",
+    "model_inference_seconds_total": 0.07052089998614974,
+    "gencode_test": {
+      "num_samples": 26401,
+      "metrics": {
+        "accuracy": 0.4265747509564032,
+        "balanced_accuracy": 0.4241114356129978,
+        "mcc": 0.18104529039700065,
+        "f1_macro": 0.3826361939579184,
+        "f1_weighted": 0.38333145794758455,
+        "f1_Other": 0.512643521049754,
+        "f1_Donor": 0.29445577600593364,
+        "f1_Acceptor": 0.34080928481806777,
+        "roc_auc_macro": 0.6810133397451287,
+        "roc_auc_weighted": 0.6807717518484078,
+        "roc_auc_Other": 0.6050346048705649,
+        "roc_auc_Donor": 0.7604273490572449,
+        "roc_auc_Acceptor": 0.6775780653075762,
+        "pr_auc_Other": 0.4267412228990299,
+        "pr_auc_Donor": 0.636521658041785,
+        "pr_auc_Acceptor": 0.49495799885400404
+      },
+      "confusion_matrix": [
+        [
+          7501,
+          223,
+          1189
+        ],
+        [
+          6510,
+          1588,
+          724
+        ],
+        [
+          6340,
+          153,
+          2173
+        ]
+      ],
+      "running_time_seconds": 0.011038500000722706
+    },
+    "gtex_test": {
+      "num_samples": 41261,
+      "metrics": {
+        "accuracy": 0.4306003247618817,
+        "balanced_accuracy": 0.4306336858662465,
+        "mcc": 0.19221479188092064,
+        "f1_macro": 0.39074023705583927,
+        "f1_weighted": 0.39071794908610263,
+        "f1_Other": 0.5112695644495463,
+        "f1_Donor": 0.3087002715145791,
+        "f1_Acceptor": 0.3522508752033923,
+        "roc_auc_macro": 0.6858853467087932,
+        "roc_auc_weighted": 0.6859329389007695,
+        "roc_auc_Other": 0.605229389730764,
+        "roc_auc_Donor": 0.7707473121227353,
+        "roc_auc_Acceptor": 0.6816793382728802,
+        "pr_auc_Other": 0.4193725419504493,
+        "pr_auc_Donor": 0.6523489806478614,
+        "pr_auc_Acceptor": 0.5049276850105042
+      },
+      "confusion_matrix": [
+        [
+          11580,
+          320,
+          1854
+        ],
+        [
+          10037,
+          2615,
+          1124
+        ],
+        [
+          9928,
+          231,
+          3572
+        ]
+      ],
+      "running_time_seconds": 0.016893899999558926
+    }
+  }
+}

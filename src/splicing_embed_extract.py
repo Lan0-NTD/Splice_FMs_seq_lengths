@@ -331,7 +331,7 @@ class EmbeddingExtractor:
             else:
                 effective_max_length = min(max_length, 512)
             logger.info(f"DNABERT effective max_length: {effective_max_length}")
-            extraction_method = 'cls'
+            extraction_method = 'center'
         logger.info(f"Embedding pooling method for {model_name}: {extraction_method}")
         
         # Load and split gencode data
