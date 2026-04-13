@@ -1,0 +1,89 @@
+{
+  "NT_finetune_gencode_train_w2000_fold1": {
+    "window_size": 2000,
+    "model_name": "NucleotideTransformer",
+    "model_id": "InstaDeepAI/nucleotide-transformer-500m-human-ref",
+    "best_fold_number": 1,
+    "checkpoint": "best_fold1.pt",
+    "checkpoint_path": "d:\\Splice_FMs_seq_lengths\\results\\fine_tuning_nt\\NT_finetune_gencode_train_w2000_fold1\\checkpoints\\best_fold1.pt",
+    "model_inference_seconds_total": 987.3428017999977,
+    "gencode_test": {
+      "num_samples": 26364,
+      "metrics": {
+        "accuracy": 0.9341147018661812,
+        "balanced_accuracy": 0.9343647467923626,
+        "mcc": 0.9013522909571545,
+        "f1_macro": 0.9339656270573102,
+        "f1_weighted": 0.9338163864814867,
+        "f1_Other": 0.9035591274397244,
+        "f1_Donor": 0.9517388617338053,
+        "f1_Acceptor": 0.9465988919984009,
+        "roc_auc_macro": 0.9900227698590714,
+        "roc_auc_weighted": 0.9899766102689769,
+        "roc_auc_Other": 0.9813550548372674,
+        "roc_auc_Donor": 0.9944740335464511,
+        "roc_auc_Acceptor": 0.9942392211934957,
+        "pr_auc_Other": 0.9658489377177784,
+        "pr_auc_Donor": 0.9897669353872736,
+        "pr_auc_Acceptor": 0.9879516531356258
+      },
+      "confusion_matrix": [
+        [
+          7870,
+          489,
+          524
+        ],
+        [
+          313,
+          8470,
+          35
+        ],
+        [
+          354,
+          22,
+          8287
+        ]
+      ],
+      "running_time_seconds": 386.8808368000027
+    },
+    "gtex_test": {
+      "num_samples": 41064,
+      "metrics": {
+        "accuracy": 0.938608026495227,
+        "balanced_accuracy": 0.9385926237371153,
+        "mcc": 0.9081412408692157,
+        "f1_macro": 0.9382439557602037,
+        "f1_weighted": 0.9382514001267274,
+        "f1_Other": 0.9070964853369151,
+        "f1_Donor": 0.9601863465328794,
+        "f1_Acceptor": 0.9474490354108165,
+        "roc_auc_macro": 0.9899504341721616,
+        "roc_auc_weighted": 0.9899516862510033,
+        "roc_auc_Other": 0.980592965857461,
+        "roc_auc_Donor": 0.9957003217784275,
+        "roc_auc_Acceptor": 0.9935580148805961,
+        "pr_auc_Other": 0.9585561181532427,
+        "pr_auc_Donor": 0.9917444699028962,
+        "pr_auc_Acceptor": 0.9863566045401424
+      },
+      "confusion_matrix": [
+        [
+          12156,
+          777,
+          755
+        ],
+        [
+          303,
+          13397,
+          12
+        ],
+        [
+          655,
+          19,
+          12990
+        ]
+      ],
+      "running_time_seconds": 600.461964999995
+    }
+  }
+}

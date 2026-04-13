@@ -1,0 +1,26 @@
+[
+  {
+    "family":"NucleotideTransformer",
+    "model_variant":"InstaDeepAI\/nucleotide-transformer-500m-human-ref",
+    "window_size":2000,
+    "dataset":"gencode",
+    "balanced_accuracy_1_1_raw":0.9343647468,
+    "f1_weighted_1_1_raw":0.9338163865,
+    "mcc_1_1_raw":0.901352291,
+    "pipeline_model_param_memory_mb_total_1_1_raw":1832.741104126,
+    "pipeline_param_count_total_1_1_raw":480442084,
+    "pipeline_running_time_seconds_1_1_raw":773.7616736
+  },
+  {
+    "family":"NucleotideTransformer",
+    "model_variant":"InstaDeepAI\/nucleotide-transformer-500m-human-ref",
+    "window_size":2000,
+    "dataset":"gtex",
+    "balanced_accuracy_1_1_raw":0.9385926237,
+    "f1_weighted_1_1_raw":0.9382514001,
+    "mcc_1_1_raw":0.9081412409,
+    "pipeline_model_param_memory_mb_total_1_1_raw":1832.741104126,
+    "pipeline_param_count_total_1_1_raw":480442084,
+    "pipeline_running_time_seconds_1_1_raw":1200.92393
+  }
+]
